@@ -11,11 +11,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\db_helper.cpp" />
+    <ClCompile Include="src\Course.cpp" />
+    <ClCompile Include="src\DBHelper.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Menu.cpp" />
+    <ClCompile Include="src\Student.cpp" />
+    <ClCompile Include="src\StudentDao.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\db_helper.h" />
+    <ClInclude Include="src\Course.h" />
+    <ClInclude Include="src\DBHelper.h" />
+    <ClInclude Include="src\header.h" />
+    <ClInclude Include="src\Menu.h" />
+    <ClInclude Include="src\SelectCourse.h" />
+    <ClInclude Include="src\Student.h" />
+    <ClInclude Include="src\StudentDao.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3C1621A3-EC25-4520-8A79-4C7704EF5A8D}</ProjectGuid>

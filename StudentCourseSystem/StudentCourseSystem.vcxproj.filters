@@ -18,12 +18,42 @@
     <ClCompile Include="src\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\db_helper.cpp">
+    <ClCompile Include="src\DBHelper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Menu.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Course.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Student.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StudentDao.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\db_helper.h">
+    <ClInclude Include="src\DBHelper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Menu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Course.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Student.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SelectCourse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StudentDao.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

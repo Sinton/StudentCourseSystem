@@ -1,21 +1,22 @@
 #include <iostream>
-#include "db_helper.h"
+#include "DBHelper.h"
+
 using namespace std;
 
 /**
  *  打开数据连接
  *  @return
  */
-int DBHelper::OpenDB(const char *path)
+int DBHelper::openDB(const char *path)
 {
-	int res = sqlite3_open(path, &sqlite_db_);
+	int res = sqlite3_open(path, &sqliteDb);
 	if (res)
 	{
-		cout << "无法打开数据库: " << sqlite3_errmsg(sqlite_db_);
-		sqlite3_close(sqlite_db_);
+		cout << "无法打开数据库: " << sqlite3_errmsg(sqliteDb);
+		sqlite3_close(sqliteDb);
 		return -1;
 	}
-	is_close_ = false;
+	isClose = false;
 	return 0;
 }
 
@@ -23,14 +24,14 @@ int DBHelper::OpenDB(const char *path)
  *  关闭数据库连接
  *  @return
  */
-int DBHelper::CloseDB()
+int DBHelper::closeDB()
 {
-	if (!is_close_)
+	if (!isClose)
 	{
-		int res = sqlite3_close(sqlite_db_);
+		int res = sqlite3_close(sqliteDb);
 		if (res)
 		{
-			cout << "无法关闭数据库: " << sqlite3_errmsg(sqlite_db_);
+			cout << "无法关闭数据库: " << sqlite3_errmsg(sqliteDb);
 			return -1;
 		}
 	}
@@ -42,15 +43,15 @@ int DBHelper::CloseDB()
  *  创建数据库表
  *  @return
  */
-int DBHelper::CreateTable(const char *table_name_and_field)
+int DBHelper::createTable(const char *table_name_and_field)
 {
 	string create_table_state = "create table ";
 	create_table_state += table_name_and_field;
 	create_table_state += ";";
-	int res = SqlStateExec(create_table_state.c_str());
+	int res = sqlExecute(create_table_state.c_str());
 	if (res != SQLITE_OK)
 	{
-		cout << "create table failed." << err_msg_ << endl;
+		cout << "create table failed." << errorMsg << endl;
 		return -1;
 	}
 	else
@@ -64,15 +65,15 @@ int DBHelper::CreateTable(const char *table_name_and_field)
  *  删除数据库表
  *  @return
  */
-int DBHelper::DropTable(const char *table_name)
+int DBHelper::dropTable(const char *table_name)
 {
 	string sql_state = "drop table ";
 	sql_state += table_name;
 	sql_state += ";";
-	int res = SqlStateExec(sql_state.c_str());
+	int res = sqlExecute(sql_state.c_str());
 	if (res != SQLITE_OK)
 	{
-		cout << "drop table failed." << err_msg_ << endl;
+		cout << "drop table failed." << errorMsg << endl;
 		return -1;
 	}
 	else
@@ -86,13 +87,13 @@ int DBHelper::DropTable(const char *table_name)
  *  查询数据库
  *  @return
  */
-int DBHelper::Select(const char *select_state)
+int DBHelper::select(const char *select_state)
 {
-	int res = SqlStateExec(select_state);
+	int res = sqlExecute(select_state);
 
 	if (res != SQLITE_OK)
 	{
-		cout << "select operate failed." << err_msg_ << endl;
+		cout << "select operate failed." << errorMsg << endl;
 		return -1;
 	}
 	else
@@ -107,17 +108,17 @@ int DBHelper::Select(const char *select_state)
  *  插入表数据
  *  @return
  */
-int DBHelper::Insert(const char *insert_state)
+int DBHelper::insert(const char *insert_state)
 {
-	int res = sqlite3_exec(sqlite_db_, "begin transaction;", CallBackFunc, 0, &err_msg_);
-	res = SqlStateExec(insert_state);
+	int res = sqlite3_exec(sqliteDb, "begin transaction;", callBackFun, 0, &errorMsg);
+	res = sqlExecute(insert_state);
 	if (res != SQLITE_OK)
 	{
-		cout << "insert operate failed." << err_msg_ << endl;
+		cout << "insert operate failed." << errorMsg << endl;
 		return -1;
 	}
 
-	res = sqlite3_exec(sqlite_db_, "commit transaction;", 0, 0, &err_msg_);
+	res = sqlite3_exec(sqliteDb, "commit transaction;", 0, 0, &errorMsg);
 
 	cout << "insert operate successed." << endl;
 
@@ -125,12 +126,12 @@ int DBHelper::Insert(const char *insert_state)
 }
 
 
-int DBHelper::Delete(const char *delete_state)
+int DBHelper::remove(const char *delete_state)
 {
-	int res = SqlStateExec(delete_state);
+	int res = sqlExecute(delete_state);
 	if (res != SQLITE_OK)
 	{
-		cout << "delete operate failed." << err_msg_ << endl;
+		cout << "delete operate failed." << errorMsg << endl;
 		return -1;
 	}
 	else
@@ -142,12 +143,12 @@ int DBHelper::Delete(const char *delete_state)
 }
 
 
-int DBHelper::Update(const char *update_state)
+int DBHelper::update(const char *update_state)
 {
-	int res = SqlStateExec(update_state);
+	int res = sqlExecute(update_state);
 	if (res != SQLITE_OK)
 	{
-		cout << "update operate failed." << err_msg_ << endl;
+		cout << "update operate failed." << errorMsg << endl;
 		return -1;
 	}
 	else
@@ -159,7 +160,7 @@ int DBHelper::Update(const char *update_state)
 }
 
 
-int DBHelper::CallBackFunc(void *not_used, int element_count, char **element, char **col_name)
+int DBHelper::callBackFun(void *not_used, int element_count, char **element, char **col_name)
 {
 	for (int index = 0; index < element_count; index++)
 	{
@@ -171,17 +172,17 @@ int DBHelper::CallBackFunc(void *not_used, int element_count, char **element, ch
 	return 0;
 }
 
-int DBHelper::Get(const char *select_state)
+int DBHelper::get(const char *select_state)
 {
 	char **dbResult;
 	int nRow = 0, nColumn = 0; int number;
 	int res = sqlite3_get_table(
-		sqlite_db_,          /* An open database */
+		sqliteDb,          /* An open database */
 		select_state,     /* SQL to be evaluated */
 		&dbResult,    /* Results of the query */
 		&nRow,           /* Number of result rows written here */
 		&nColumn,        /* Number of result columns written here */
-		&err_msg_      /* Error msg written here */
+		&errorMsg      /* Error msg written here */
 		);
 	if (dbResult[nColumn] == NULL)
 		return -1;
@@ -191,7 +192,7 @@ int DBHelper::Get(const char *select_state)
 
 	if (res != SQLITE_OK)
 	{
-		cout << "select operate failed." << err_msg_ << endl;
+		cout << "select operate failed." << errorMsg << endl;
 		return -1;
 	}
 	else
@@ -202,7 +203,7 @@ int DBHelper::Get(const char *select_state)
 	return 0;
 }
 
-int DBHelper::SqlStateExec(const char *sql_state)
+int DBHelper::sqlExecute(const char *sql_state)
 {
-	return sqlite3_exec(sqlite_db_, sql_state, CallBackFunc, 0, &err_msg_);
+	return sqlite3_exec(sqliteDb, sql_state, callBackFun, 0, &errorMsg);
 }
