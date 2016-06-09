@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<string> studentInfoVector;
+vector<string> studentInfo;
 
 int StudentDao::openDB(const char *path)
 {
@@ -33,26 +33,18 @@ int StudentDao::closeDB()
 	return 0;
 }
 
-int StudentDao::callBackSaveStudent(void *, int elementCount, char **element, char **colName)
+int StudentDao::callBackSaveStudentInfo(void *, int elementCount, char **element, char **colName)
 {
 	for (int index = 0; index < elementCount; index++)
-	{
-		studentInfoVector.push_back(element[index] ? element[index] : "NULL");
-		cout << colName[index] << " = " << (element[index] ? element[index] : "NULL") << endl;
-	}
-	/*vector<string>::iterator iterator;
-	for (iterator = studentInfoVector.begin(); iterator != studentInfoVector.end(); iterator++)
-		cout << iterator->data() << "=" << endl;*/
-	cout << "\n";
+		studentInfo.push_back(element[index] ? element[index] : "NULL");
 	return 0;
 }
 
-int StudentDao::getStudentByUid(string uid)
+vector<string> StudentDao::getStudentByUid(string uid)
 {
 	string sql = "select * from t_student where uid = " + string(uid);
-	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackSaveStudent, 0, &errorMsg);
-	if (queryResult != SQLITE_OK) {
-		printf("%s", errorMsg);
-	}
-	return 0;
+	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackSaveStudentInfo, 0, &errorMsg);
+	if (queryResult != SQLITE_OK)
+		cout << errorMsg;
+	return studentInfo;
 }
