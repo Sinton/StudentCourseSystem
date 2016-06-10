@@ -1,6 +1,9 @@
 class Menu
 {
 public:
+	friend char choose(char i);
+	friend int inputNumber();
+	static string identity;
 	static void systemMenu();      // 主菜单
 	static void isBack();          // 返回主菜单
 	static void chooseRole();      // 选择角色

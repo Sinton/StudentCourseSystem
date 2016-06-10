@@ -6,6 +6,10 @@
 
 using namespace std;
 
+vector<Student> stu_vec;
+vector<Student> Student::vStu = stu_vec;
+vector<Student>::iterator Student::itCurr = vStu.begin();
+
 Student::Student()
 {
 	uid = "";
@@ -36,13 +40,12 @@ int Student::login()
 		StudentDao studentDao;
 		vector<string> studentInfo = studentDao.getStudentByUid(uid);
 		vector<string>::iterator iterator;
+		// 打印获取到的学生信息
 		for (iterator = studentInfo.begin(); iterator != studentInfo.end(); iterator++)
 			cout << iterator->data() << "=" << endl;
-		system("pause");
 		if (!studentInfo.empty())
 		{
-			cout << "\t\t\t\t登录成功!\n\n";
-			system("pause");
+			Menu::studentMenu();
 		}
 		else
 		{

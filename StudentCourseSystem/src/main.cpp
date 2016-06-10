@@ -56,7 +56,7 @@ string inputString()
 
 int main()
 {
-	Menu *menu = new Menu;
-	menu->chooseRole();
+	Menu menu;
+	menu.chooseRole();
 	return 0;
 }

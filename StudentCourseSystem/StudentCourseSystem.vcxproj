@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Course.cpp" />
+    <ClCompile Include="src\CourseDao.cpp" />
     <ClCompile Include="src\DBHelper.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Menu.cpp" />
@@ -20,6 +21,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Course.h" />
+    <ClInclude Include="src\CourseDao.h" />
     <ClInclude Include="src\DBHelper.h" />
     <ClInclude Include="src\header.h" />
     <ClInclude Include="src\Menu.h" />

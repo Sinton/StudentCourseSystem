@@ -33,6 +33,9 @@
     <ClCompile Include="src\StudentDao.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\CourseDao.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DBHelper.h">
@@ -54,6 +57,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\StudentDao.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CourseDao.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

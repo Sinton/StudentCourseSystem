@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "DBHelper.h"
 
 using namespace std;
@@ -19,6 +20,4 @@ private:
 
 	// sql回调函数
 	static int callBackSaveStudentInfo(void *, int argc, char **argv, char **colName);
-	// 执行sql语句
-	int sqlExecute(const char *sqlStmt);
 };

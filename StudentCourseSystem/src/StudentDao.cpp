@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
 #include "StudentDao.h"
-
-using namespace std;
 
 vector<string> studentInfo;
 
