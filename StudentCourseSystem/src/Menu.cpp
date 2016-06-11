@@ -19,7 +19,7 @@ void Menu::systemMenu()
 	cout << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
-	cout << endl << "请选择功能：(1~8)" << endl;
+	cout << endl << "请选择功能(1~8): ";
 	switch (choose('8'))
 	{
 	case '1':
@@ -48,6 +48,7 @@ void Menu::systemMenu()
 	}
 	case '6':
 	{
+		Menu::studentInfoSearchMenu();
 		break;
 	}
 	case '7':
@@ -58,6 +59,8 @@ void Menu::systemMenu()
 	{
 		break;
 	}
+	default:
+		break;
 	}
 }
 
@@ -85,11 +88,12 @@ void Menu::chooseRole()
 	cout << endl;
 	cout << "1.学生登录" << endl;
 	cout << "2.进入管理系统" << endl;
-	cout << "3.退出系统\n" << endl;
+	cout << "3.退出系统" << endl;
+	cout << endl;
 	cout << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
-	cout << endl << "请选择功能：(1~3)" << endl;
+	cout << endl << "请选择功能(1~3): ";
 	switch (choose('3'))
 	{
 	case '1':
@@ -102,7 +106,7 @@ void Menu::chooseRole()
 	case '2':
 	{
 		identity = "管理员";
-		systemMenu();
+		Menu::systemMenu();
 		break;
 	}
 	default:
@@ -116,35 +120,40 @@ void Menu::studentMenu()
 	cout << "\n\t\t\t       学生菜单" << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
-	cout << "\n1.开始选课" << endl;
+	cout << endl;
+	cout << "1.开始选课" << endl;
 	cout << "2.浏览课程信息" << endl;
 	cout << "3.查询课程" << endl;
 	cout << "4.修改资料" << endl;
-	cout << "5.退出系统\n" << endl;
+	cout << "5.退出系统" << endl;
+	cout << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
-	cout << endl << "请选择功能：(1~5):";
+	cout << endl << "请选择功能(1~5): ";
 	switch (choose('5'))
 	{
-		case'1':
-		{
-			selectCourseMenu();
-			break;
-		}
-		case'2':
-		{
-			Course course;
-			course.showAllCourses();
-			break;
-		}
-		case'3':
-		{
-			break;
-		}
-		case'4':
-		{
-			break;
-		}
+	case'1':
+	{
+		Menu::selectCourseMenu();
+		break;
+	}
+	case'2':
+	{
+		Course course;
+		course.showAllCourses();
+		break;
+	}
+	case'3':
+	{
+		Menu::courseInfoSearchMenu();
+		break;
+	}
+	case'4':
+	{
+		break;
+	}
+	default:
+		break;
 	}
 }
 
@@ -153,12 +162,43 @@ void Menu::selectCourseMenu()
 	system("cls");
 }
 
-void Menu::courseInfoMenu()
+void Menu::courseInfoSearchMenu()
 {
 }
 
-void Menu::studentInfoMenu()
+void Menu::studentInfoSearchMenu()
 {
+	system("cls");
+	cout << "\n\t\t\t       学生信息查询菜单" << endl;
+	for (int i = 0; i < 80; i++)
+		cout << "*";
+	cout << endl;
+	cout << "1.学生学号" << endl;
+	cout << "2.学生名字" << endl;
+	cout << "3.退出系统" << endl;
+	cout << endl;
+	cout << endl;
+	for (int i = 0; i < 80; i++)
+		cout << "*";
+	cout << endl << "请选择功能(1~3): ";
+	Student student;
+	switch (choose('3'))
+	{
+	case '1':
+	{
+		cout << "请输入学号: ";
+		student.showStudentByUid(inputString());
+		break;
+	}
+	case '2':
+	{
+		cout << "请输入姓名: ";
+		student.showStudentByName(inputString());
+		break;
+	}
+	default:
+		break;
+	}
 }
 
 Menu::Menu()

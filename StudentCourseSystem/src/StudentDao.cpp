@@ -30,7 +30,7 @@ int StudentDao::closeDB()
 	return 0;
 }
 
-int StudentDao::callBackGetStudentByUid(void *, int elementCount, char **element, char **colName)
+int StudentDao::callBackGetStudent(void *, int elementCount, char **element, char **colName)
 {
 	studentInfo.clear();
 	for (int index = 0; index < elementCount; index++)
@@ -41,24 +41,16 @@ int StudentDao::callBackGetStudentByUid(void *, int elementCount, char **element
 vector<string> StudentDao::getStudentByUid(string uid)
 {
 	string sql = "SELECT * FROM t_student WHERE uid = " + string(uid);
-	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetStudentByUid, 0, &errorMsg);
+	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetStudent, 0, &errorMsg);
 	if (queryResult != SQLITE_OK)
 		cout << errorMsg;
 	return studentInfo;
 }
 
-int StudentDao::callBackGetStudentByName(void *, int elementCount, char **element, char **colName)
-{
-	studentInfo.clear();
-	for (int index = 0; index < elementCount; index++)
-		studentInfo.push_back(element[index] ? element[index] : "NULL");
-	return 0;
-}
-
 vector<string> StudentDao::getStudentByName(string name)
 {
 	string sql = "SELECT * FROM t_student WHERE name = " + string(name);
-	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetStudentByUid, 0, &errorMsg);
+	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetStudent, 0, &errorMsg);
 	if (queryResult != SQLITE_OK)
 		cout << errorMsg;
 	return studentInfo;
@@ -67,7 +59,7 @@ vector<string> StudentDao::getStudentByName(string name)
 bool StudentDao::checkUidExits(string uid)
 {
 	string sql = "SELECT * FROM t_student WHERE uid = " + string(uid);
-	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetStudentByUid, 0, &errorMsg);
+	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetStudent, 0, &errorMsg);
 	if (queryResult != SQLITE_OK)
 		cout << errorMsg;
 	if (!studentInfo.empty())

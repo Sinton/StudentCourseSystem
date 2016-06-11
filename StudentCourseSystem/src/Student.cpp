@@ -64,14 +64,24 @@ void Student::deleteStudent()
 
 }
 
-void Student::showStudent(string uid)
+void Student::showStudentByUid(string uid)
 {
 	StudentDao studentDao;
 	vector<string> studentInfo = studentDao.getStudentByUid(uid);
 	vector<string>::iterator iterator;
 	// 打印获取到的学生信息
 	for (iterator = studentInfo.begin(); iterator != studentInfo.end(); iterator++)
-		cout << iterator->data() << "=" << endl;
+		cout << iterator->data() << endl;
+}
+
+void Student::showStudentByName(string name)
+{
+	StudentDao studentDao;
+	vector<string> studentInfo = studentDao.getStudentByName(name);
+	vector<string>::iterator iterator;
+	// 打印获取到的学生信息
+	for (iterator = studentInfo.begin(); iterator != studentInfo.end(); iterator++)
+		cout << iterator->data() << endl;
 }
 
 Student::Student()

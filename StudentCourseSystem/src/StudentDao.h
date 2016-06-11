@@ -22,6 +22,5 @@ private:
 	char* errorMsg;			// 错误信息
 	bool isClose;			// 关闭数据的标识
 
-	static int callBackGetStudentByUid(void *, int elementCount, char **element, char **colName);
-	static int callBackGetStudentByName(void *, int elementCount, char **element, char **colName);
+	static int callBackGetStudent(void *, int elementCount, char **element, char **colName);
 };

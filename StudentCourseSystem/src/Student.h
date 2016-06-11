@@ -28,7 +28,8 @@ public:
 	void createStudent();                    // 添加学生信息
 	void updateStudent();                    // 更新学生信息
 	void deleteStudent();                    // 删除学生信息
-	void showStudent(string uid);            // 显示学生信息
+	void showStudentByUid(string uid);       // 根据学号显示学生信息
+	void showStudentByName(string name);       // 根据姓名显示学生信息
 	Student();
 	~Student();
 
