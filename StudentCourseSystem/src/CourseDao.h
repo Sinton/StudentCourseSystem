@@ -10,7 +10,7 @@ public:
 	int openDB(const char *path);
 	int closeDB();
 	vector<Course> getAllCourses();
-	void addCourse();
+	void addCourse(Course course);
 	void removeCourse();
 	CourseDao(){ openDB(DB_NAME); }
 	~CourseDao(){ closeDB(); }

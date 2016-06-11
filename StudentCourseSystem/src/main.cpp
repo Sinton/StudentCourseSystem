@@ -1,10 +1,8 @@
-#include <iostream>
+#include <cstdio>
 #include "header.h"
 #include "Menu.h"
 #include "Student.h"
 #include "Course.h"
-
-using namespace std;
 
 char choose(char i)
 {
@@ -26,19 +24,21 @@ char choose(char i)
 	return operate;
 }
 
-//int inputNumber()
-//{
-//	int number, numberTemp;
-//	numberTemp = scanf("%d", &number);
-//	cin.ignore(100, '\n');
-//	while (numberTemp == 0)
-//	{
-//		cout << "输入错误!需输入数字!\n重新输入: ";
-//		cin.ignore(100, '\n');
-//		numberTemp = scanf("%d", &number);
-//	}
-//	return number;
-//}
+int inputNumber()
+{
+	int number, numberTemp;
+	cin >> number;
+	numberTemp = number;
+	cin.ignore(100, '\n');
+	while (numberTemp == 0)
+	{
+		cout << "输入错误!需输入数字!\n重新输入: ";
+		cin.ignore(100, '\n');
+		cin >> number;
+		numberTemp = number;
+	}
+	return number;
+}
 
 char inputChar()
 {

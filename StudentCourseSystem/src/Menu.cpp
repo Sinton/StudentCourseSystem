@@ -12,15 +12,16 @@ void Menu::systemMenu()
 	for (int i = 0; i < 80; i++)
 		cout << "*";
 	cout << endl;
-	cout << "1.录入课程\t5.录入学生" << endl;
-	cout << "2.查询课程\t6.查询学生" << endl;
-	cout << "3.删除课程\t7.删除学生" << endl;
-	cout << "4.修改课程\t8.退出系统" << endl;
+	cout << "1.录入课程" << endl;
+	cout << "2.录入学生" << endl;
+	cout << "3.查询课程" << endl;
+	cout << "4.查询学生" << endl;
+	cout << "5.退出系统" << endl;
 	cout << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
-	cout << endl << "请选择功能(1~8): ";
-	switch (choose('8'))
+	cout << endl << "请选择功能(1~5): ";
+	switch (choose('5')) 
 	{
 	case '1':
 	{
@@ -30,33 +31,18 @@ void Menu::systemMenu()
 	}
 	case '2':
 	{
-		break;
-	}
-	case '3':
-	{
-		break;
-	}
-	case '4':
-	{
-		break;
-	}
-	case '5':
-	{
 		Student student;
 		student.createStudent();
 		break;
 	}
-	case '6':
+	case '3':
+	{
+		Menu::courseInfoSearchMenu();
+		break;
+	}
+	case '4':
 	{
 		Menu::studentInfoSearchMenu();
-		break;
-	}
-	case '7':
-	{
-		break;
-	}
-	case '8':
-	{
 		break;
 	}
 	default:
@@ -89,6 +75,7 @@ void Menu::chooseRole()
 	cout << "1.学生登录" << endl;
 	cout << "2.进入管理系统" << endl;
 	cout << "3.退出系统" << endl;
+	cout << endl;
 	cout << endl;
 	cout << endl;
 	for (int i = 0; i < 80; i++)
