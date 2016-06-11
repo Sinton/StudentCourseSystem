@@ -20,7 +20,7 @@ public:
 	void setMemberJoin(int memberJoin){ this->memberJoin = memberMax; }
 	void setStartTerm(string startTerm){ this->startTerm = startTerm; }
 
-	// get属性]
+	// get属性
 	int getCourseId(){ return courseId; }
 	string getCourseName(){ return courseName; }
 	string getCourseCredit(){ return courseCredit; }
@@ -34,9 +34,9 @@ public:
 	int getMemberJoin(){ return memberJoin; }
 	string getStartTerm(){ return startTerm; }
 
-	void createCourse();    // 添加课程
-	void updateCourse();    // 更新课程信息
-	void deleteCourse();    // 删除课程
+	void createCourse();     // 添加课程
+	void updateCourse();     // 更新课程信息
+	void deleteCourse();     // 删除课程
 	void showAllCourses();   // 显示全部课程
 	Course();
 	~Course();

@@ -1,30 +1,10 @@
-#include <iostream>
-#include "header.h"
 #include "Student.h"
-#include "Menu.h"
 #include "StudentDao.h"
-
-using namespace std;
+#include "Menu.h"
 
 vector<Student> stu_vec;
-vector<Student> Student::vStu = stu_vec;
-vector<Student>::iterator Student::itCurr = vStu.begin();
-
-Student::Student()
-{
-	uid = "";
-	name = "";
-	sex = "";
-	credit = 0;
-	grade = "";
-	major = "";
-	department = "";
-}
-
-Student::~Student()
-{
-
-}
+//vector<Student> Student::vStu = stu_vec;
+//vector<Student>::iterator Student::itCurr = vStu.begin();
 
 int Student::login()
 {
@@ -39,11 +19,7 @@ int Student::login()
 		string uid = inputString();
 		StudentDao studentDao;
 		vector<string> studentInfo = studentDao.getStudentByUid(uid);
-		vector<string>::iterator iterator;
-		// 打印获取到的学生信息
-		for (iterator = studentInfo.begin(); iterator != studentInfo.end(); iterator++)
-			cout << iterator->data() << "=" << endl;
-		if (!studentInfo.empty())
+		if (studentDao.checkUidExits(uid))
 		{
 			Menu::studentMenu();
 		}
@@ -55,4 +31,61 @@ int Student::login()
 			system("pause");
 		}
 	}
+}
+
+void Student::createStudent()
+{
+	Student student;
+	cout << "请输入学号：" << endl;
+	student.uid = inputString();
+	cout << "请输入姓名：" << endl;
+	student.name = inputString();
+	cout << "请输入性别：" << endl;
+	student.sex = inputString();
+	cout << "请输入绩点：" << endl;
+	student.credit = inputString();
+	cout << "请输入年级：" << endl;
+	student.grade = inputString();
+	cout << "请输入专业：" << endl;
+	student.major = inputString();
+	cout << "请输入院系：" << endl;
+	student.department = inputString();
+	StudentDao studentDao;
+	studentDao.addStudent(student);
+}
+
+void Student::updateStudent()
+{
+
+}
+
+void Student::deleteStudent()
+{
+
+}
+
+void Student::showStudent(string uid)
+{
+	StudentDao studentDao;
+	vector<string> studentInfo = studentDao.getStudentByUid(uid);
+	vector<string>::iterator iterator;
+	// 打印获取到的学生信息
+	for (iterator = studentInfo.begin(); iterator != studentInfo.end(); iterator++)
+		cout << iterator->data() << "=" << endl;
+}
+
+Student::Student()
+{
+	uid = "";
+	name = "";
+	sex = "";
+	credit = "";
+	grade = "";
+	major = "";
+	department = "";
+}
+
+Student::~Student()
+{
+
 }

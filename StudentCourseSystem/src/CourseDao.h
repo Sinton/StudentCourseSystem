@@ -10,6 +10,8 @@ public:
 	int openDB(const char *path);
 	int closeDB();
 	vector<Course> getAllCourses();
+	void addCourse();
+	void removeCourse();
 	CourseDao(){ openDB(DB_NAME); }
 	~CourseDao(){ closeDB(); }
 
@@ -19,5 +21,6 @@ private:
 	bool isClose;			// 关闭数据的标识
 
 	static int callBackAllCourses(void *, int argc, char **argv, char **colName);
-	static int callBackAddCourses(void *, int argc, char **argv, char **colName);
+	static int callBackAddCourse(void *, int argc, char **argv, char **colName);
+	static int callBackRemoveCourse(void *, int argc, char **argv, char **colName);
 };
