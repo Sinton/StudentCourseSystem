@@ -1,10 +1,12 @@
+#ifndef _STUDENT_H
+#define _STUDENT_H
 #include "header.h"
 
 class Student
 {
 public:
-	//static vector<Student>::iterator itCurr; //当前学生序号
-	//static vector<Student> vStu;             //记录学生信息
+	static vector<Student>::iterator iterStudent; //当前学生序号
+	static vector<Student> vStudents;             //记录学生信息
 
 	// set属性
 	void setUid(string uid){ this->uid = uid; }
@@ -29,7 +31,7 @@ public:
 	void updateStudent();                    // 更新学生信息
 	void deleteStudent();                    // 删除学生信息
 	void showStudentByUid(string uid);       // 根据学号显示学生信息
-	void showStudentByName(string name);       // 根据姓名显示学生信息
+	void showStudentByName(string name);     // 根据姓名显示学生信息
 	Student();
 	~Student();
 
@@ -42,3 +44,5 @@ private:
 	string major;     // 专业
 	string department;// 院系
 };
+
+#endif

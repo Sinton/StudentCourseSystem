@@ -52,7 +52,17 @@ void Menu::systemMenu()
 
 void Menu::isBack()
 {
-	cout << "\n\n\t是否返回主菜单？\n\n\t 1.是\n\n\t 2.退出系统\n\n请选择:";
+	cout << "\n\t\t\t       是否返回主菜单？" << endl;
+	cout << endl;
+	cout << "1.是" << endl;
+	cout << "2.退出系统" << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	for (int i = 0; i < 80; i++)
+		cout << "*";
+	cout << endl << "请选择功能(1~2): ";
 	char choose = inputChar();
 	while (choose != '1' && choose != '2')
 	{
@@ -62,7 +72,13 @@ void Menu::isBack()
 	if (choose == '1')
 	{
 		if (identity == "学生")
-			studentMenu();
+			Menu::studentMenu();
+		else
+			Menu::systemMenu();
+	}
+	else
+	{
+		exit(0);
 	}
 }
 
@@ -109,7 +125,7 @@ void Menu::studentMenu()
 		cout << "*";
 	cout << endl;
 	cout << "1.开始选课" << endl;
-	cout << "2.浏览课程信息" << endl;
+	cout << "2.浏览全部课程信息" << endl;
 	cout << "3.查询课程" << endl;
 	cout << "4.修改资料" << endl;
 	cout << "5.退出系统" << endl;
@@ -147,10 +163,69 @@ void Menu::studentMenu()
 void Menu::selectCourseMenu()
 {
 	system("cls");
+	cout << "\n\t\t\t       选课菜单" << endl;
+	for (int i = 0; i < 80; i++)
+		cout << "*";
+	cout << endl;
+	cout << "1.浏览全部可选课程" << endl;
+	cout << "2.浏览全部已选课程" << endl;
+	cout << "3.退出系统" << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	for (int i = 0; i < 80; i++)
+		cout << "*";
+	cout << "\n" << endl;
+	cout << "请选择功能(1~3): ";
+	switch (choose('3'))
+	{
+	case '1':
+	{
+		break;
+	}
+	case '2':
+	{
+		break;
+	}
+	default:
+		break;
+	}
 }
 
 void Menu::courseInfoSearchMenu()
 {
+	system("cls");
+	cout << "\n\t\t\t       课程信息查询菜单" << endl;
+	for (int i = 0; i < 80; i++)
+		cout << "*";
+	cout << endl;
+	cout << "1.课程学分" << endl;
+	cout << "2.课程名称" << endl;
+	cout << "3.退出系统" << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	for (int i = 0; i < 80; i++)
+		cout << "*";
+	cout << endl << "请选择功能(1~3): ";
+	Course course;
+	switch (choose('3'))
+	{
+	case '1':
+	{
+		cout << "请输入要查找的课程学分：";
+		course.showCoursesByCredit(inputString());
+		break;
+	}
+	case '2':
+	{
+		cout << "请输入要查找的课程名称：";
+		course.showCoursesByName(inputString());
+		break;
+	}
+	default:
+		break;
+	}
 }
 
 void Menu::studentInfoSearchMenu()
@@ -173,13 +248,13 @@ void Menu::studentInfoSearchMenu()
 	{
 	case '1':
 	{
-		cout << "请输入学号: ";
+		cout << "请输入要查找的学生学号: ";
 		student.showStudentByUid(inputString());
 		break;
 	}
 	case '2':
 	{
-		cout << "请输入姓名: ";
+		cout << "请输入查找的学生姓名: ";
 		student.showStudentByName(inputString());
 		break;
 	}

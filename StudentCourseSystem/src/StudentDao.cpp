@@ -1,4 +1,3 @@
-#include "Student.h"
 #include "StudentDao.h"
 
 vector<string> studentInfo;

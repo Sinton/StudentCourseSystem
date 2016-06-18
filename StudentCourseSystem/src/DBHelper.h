@@ -1,5 +1,5 @@
-#ifndef  __INCLUDE_DBHELPER_H__
-#define  __INCLUDE_DBHELPER_H__
+#ifndef  __DBHELPER_H__
+#define  __DBHELPER_H__
 
 #ifdef _DEBUG
 #pragma comment(lib, "lib/sqlite3.lib")
@@ -36,6 +36,5 @@ private:
 	// ÷¥––sql”Ôæ‰
 	int sqlExecute(const char *sqlStmt);
 };
-
 
 #endif

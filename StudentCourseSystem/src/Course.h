@@ -1,3 +1,5 @@
+#ifndef _COURSE_H
+#define _COURSE_H
 #include "header.h"
 
 class Course
@@ -17,7 +19,7 @@ public:
 	void setClassPeriod(string classPeriod){ this->classPeriod = classPeriod; }
 	void setLabPeriod(string labPeriod){ this->labPeriod = labPeriod; }
 	void setMemberMax(string memberMax){ this->memberMax = memberMax; }
-	void setMemberJoin(string memberJoin){ this->memberJoin = memberMax; }
+	void setMemberJoin(string memberJoin){ this->memberJoin = memberJoin; }
 	void setStartTerm(string startTerm){ this->startTerm = startTerm; }
 
 	// get属性
@@ -38,6 +40,8 @@ public:
 	void updateCourse();     // 更新课程信息
 	void deleteCourse();     // 删除课程
 	void showAllCourses();   // 显示全部课程
+	void showCoursesByName(string name);    // 按照课程名称查找课程
+	void showCoursesByCredit(string credit);// 按照课程学分查找课程
 	Course();
 	~Course();
 private:
@@ -54,3 +58,5 @@ private:
 	string memberJoin;         // 已选人数
 	string startTerm;          // 开始授课学期
 };
+
+#endif

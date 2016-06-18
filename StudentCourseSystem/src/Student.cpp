@@ -3,8 +3,9 @@
 #include "Menu.h"
 
 vector<Student> stu_vec;
-//vector<Student> Student::vStu = stu_vec;
-//vector<Student>::iterator Student::itCurr = vStu.begin();
+vector<Student> Student::vStudents = stu_vec;
+vector<Student>::iterator Student::iterStudent = vStudents.begin();
+static string uid;
 
 int Student::login()
 {
@@ -16,7 +17,7 @@ int Student::login()
 		for (int i = 0; i < 80; i++)
 			cout << "*";
 		cout << "ÇëÊäÈëÑ§ºÅ£º";
-		string uid = inputString();
+		uid = inputString();
 		StudentDao studentDao;
 		vector<string> studentInfo = studentDao.getStudentByUid(uid);
 		if (studentDao.checkUidExits(uid))

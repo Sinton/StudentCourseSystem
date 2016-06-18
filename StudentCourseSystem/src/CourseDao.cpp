@@ -1,4 +1,3 @@
-#include "Course.h"
 #include "CourseDao.h"
 
 int CourseDao::openDB(const char *path)
@@ -28,7 +27,7 @@ int CourseDao::closeDB()
 	return 0;
 }
 
-int CourseDao::callBackAllCourses(void *, int elementCount, char **element, char **colName)
+int CourseDao::callBackGetAllCourses(void *, int elementCount, char **element, char **colName)
 {
 	Course course;
 	course.setCourseId(element[0]);
@@ -49,8 +48,30 @@ int CourseDao::callBackAllCourses(void *, int elementCount, char **element, char
 
 vector<Course> CourseDao::getAllCourses()
 {
-	string sql = "select * from t_course";
-	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackAllCourses, 0, &errorMsg);
+	string sql = "SELECT * FROM t_course";
+	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetAllCourses, 0, &errorMsg);
+	if (queryResult != SQLITE_OK)
+		cout << errorMsg;
+	return Course::courseVector;
+}
+
+vector<Course> CourseDao::getCourseByName(string name)
+{
+	Course::courseVector.clear();
+	string sql = "SELECT * FROM t_course WHERE course_name LIKE '%" + name + "%' OR "
+		+ "course_name LIKE '%" + name + "' OR "
+		+ "course_name LIKE '" + name + "%'";
+	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetAllCourses, 0, &errorMsg);
+	if (queryResult != SQLITE_OK)
+		cout << errorMsg;
+	return Course::courseVector; 
+}
+
+vector<Course> CourseDao::getCourseByCredit(string credit)
+{
+	Course::courseVector.clear();
+	string sql = "SELECT * FROM t_course WHERE course_credit = " + credit;
+	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetAllCourses, 0, &errorMsg);
 	if (queryResult != SQLITE_OK)
 		cout << errorMsg;
 	return Course::courseVector;
@@ -68,7 +89,7 @@ void CourseDao::addCourse(Course course)
 		+ string(course.getClassPeriod()) + ", "
 		+ string(course.getLabPeriod()) + ", "
 		+ string(course.getMemberMax()) + ", "
-		+ string(course.getMemberMax()) + ", '"
+		+ string(course.getMemberJoin()) + ", '"
 		+ string(course.getStartTerm()) + "')";
 	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), 0, 0, &errorMsg);
 	if (queryResult != SQLITE_OK)

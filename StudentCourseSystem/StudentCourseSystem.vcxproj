@@ -16,6 +16,8 @@
     <ClCompile Include="src\DBHelper.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Menu.cpp" />
+    <ClCompile Include="src\SelectCourse.cpp" />
+    <ClCompile Include="src\SelectCourseDao.cpp" />
     <ClCompile Include="src\Student.cpp" />
     <ClCompile Include="src\StudentDao.cpp" />
   </ItemGroup>
@@ -26,6 +28,7 @@
     <ClInclude Include="src\header.h" />
     <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\SelectCourse.h" />
+    <ClInclude Include="src\SelectCourseDao.h" />
     <ClInclude Include="src\Student.h" />
     <ClInclude Include="src\StudentDao.h" />
   </ItemGroup>

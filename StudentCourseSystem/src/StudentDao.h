@@ -1,8 +1,9 @@
+#ifndef _STUDENT_DAO_H
+#define _STUDENT_DAO_H
 #include <iostream>
 #include <vector>
 #include "DBHelper.h"
-
-using namespace std;
+#include "Student.h"
 
 class StudentDao
 {
@@ -24,3 +25,5 @@ private:
 
 	static int callBackGetStudent(void *, int elementCount, char **element, char **colName);
 };
+
+#endif
