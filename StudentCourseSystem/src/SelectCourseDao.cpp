@@ -71,7 +71,7 @@ int SelectCourseDao::callBackGetRecords(void *, int elementCount, char **element
 vector<Course> SelectCourseDao::getRecords(string uid)
 {
 	selectCourses.clear();
-	string sql = "SELECT course_id, course_name, course_grade FROM t_record WHERE uid = " + uid;
+	string sql = "SELECT course_id, course_name, course_credit FROM t_record WHERE uid = " + uid;
 	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetRecords, 0, &errorMsg);
 	if (queryResult != SQLITE_OK)
 		cout << errorMsg;
@@ -80,11 +80,11 @@ vector<Course> SelectCourseDao::getRecords(string uid)
 
 void SelectCourseDao::addRecord(SelectCourse selectCourse)
 {
-	string sql = "INSERT INTO `t_record` (`course_id`, `uid`, `course_name`, `course_grade`) VALUES ("
+	string sql = "INSERT INTO `t_record` (`course_id`, `uid`, `course_name`, `course_credit`) VALUES ("
+		+ string(selectCourse.getCourseId()) + ", '"
 		+ string(selectCourse.getUid()) + "', '"
-		+ string(selectCourse.getCourseId()) + "', '"
 		+ string(selectCourse.getCourseName()) + "', '"
-		+ string(selectCourse.getCourseGrade()) + "')";
+		+ string(selectCourse.getCourseCredit()) + "')";
 	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), 0, 0, &errorMsg);
 	if (queryResult != SQLITE_OK)
 		cout << errorMsg;

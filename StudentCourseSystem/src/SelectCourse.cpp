@@ -4,9 +4,24 @@
 #include "SelectCourseDao.h"
 #include "Menu.h"
 
-void SelectCourse::createRecord()
+void SelectCourse::createRecord(vector<Course> selectCourses)
 {
+	SelectCourse selectCourse;
 	cout << "请输入课程编号进行选课: ";
+	string cid = inputString();
+	for (vector<Course>::iterator iter = selectCourses.begin(); iter != selectCourses.end(); iter++)
+	{
+		if (iter->getCourseId() == cid)
+		{
+			selectCourse.courseId = iter->getCourseId();
+			selectCourse.uid = Student::uid;
+			selectCourse.courseName = iter->getCourseName();
+			selectCourse.courseCredit = iter->getCourseCredit();
+		}
+	}
+	SelectCourseDao selectCourseDao;
+	selectCourseDao.addRecord(selectCourse);
+	system("pause");
 }
 
 void SelectCourse::updateRecord()
@@ -46,7 +61,7 @@ void SelectCourse::showAllOptionalCourse()
 			<< "已选人数：" << iter->getMemberJoin() << "\t\t"
 			<< "上课学期：" << iter->getStartTerm() << endl << endl;
 	}
-	system("pause");
+	SelectCourse::createRecord(selectCourses);
 }
 
 void SelectCourse::showAllRecords()
@@ -63,7 +78,8 @@ void SelectCourse::showAllRecords()
 	for (vector<Course>::iterator iter = selectCourses.begin(); iter != selectCourses.end(); iter++)
 	{
 		cout << "=========================================================\n"
-			<< "课程名称：" << iter->getCourseName() << "\t\t"
+			<< "课程编号：" << iter->getCourseId() << "\t\t"
+			<< "课程名称：" << iter->getCourseName() << endl
 			<< "课程学分：" << iter->getCourseCredit() << endl << endl;
 	}
 	system("pause");

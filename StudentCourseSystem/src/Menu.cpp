@@ -126,7 +126,7 @@ void Menu::studentMenu()
 		cout << "*";
 	cout << endl;
 	cout << "1.开始选课" << endl;
-	cout << "2.浏览全部课程信息" << endl;
+	cout << "2.查看全部课程" << endl;
 	cout << "3.查询课程" << endl;
 	cout << "4.修改资料" << endl;
 	cout << "5.退出系统" << endl;
@@ -206,15 +206,15 @@ void Menu::courseInfoSearchMenu()
 	cout << endl;
 	cout << "1.课程学分" << endl;
 	cout << "2.课程名称" << endl;
-	cout << "3.退出系统" << endl;
-	cout << endl;
+	cout << "3.查看全部课程" << endl;
+	cout << "4.退出系统" << endl;
 	cout << endl;
 	cout << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
-	cout << endl << "请选择功能(1~3): ";
+	cout << endl << "请选择功能(1~4): ";
 	Course course;
-	switch (choose('3'))
+	switch (choose('4'))
 	{
 	case '1':
 	{
@@ -227,6 +227,10 @@ void Menu::courseInfoSearchMenu()
 		cout << "请输入要查找的课程名称：";
 		course.showCoursesByName(inputString());
 		break;
+	}
+	case '3':
+	{
+		course.showAllCourses();
 	}
 	default:
 		break;
