@@ -2,10 +2,8 @@
 #include "StudentDao.h"
 #include "Menu.h"
 
-vector<Student> stu_vec;
-vector<Student> Student::vStudents = stu_vec;
-vector<Student>::iterator Student::iterStudent = vStudents.begin();
 string Student::loginUid = "";
+string Student::profile[] = { "学号：", "姓名：", "性别：", "绩点：", "年级：", "专业：", "院系：" };
 
 void Student::login()
 {
@@ -46,12 +44,10 @@ void Student::createStudent()
 
 void Student::updateStudent()
 {
-
 }
 
 void Student::deleteStudent()
 {
-
 }
 
 void Student::showStudentByUid(string uid)
@@ -60,8 +56,11 @@ void Student::showStudentByUid(string uid)
 	vector<string> studentInfo = studentDao.getStudentByUid(uid);
 	vector<string>::iterator iterator;
 	// 打印获取到的学生信息
+	cout << endl;
+	int index = 0;
 	for (iterator = studentInfo.begin(); iterator != studentInfo.end(); iterator++)
-		cout << iterator->data() << endl;
+		cout << profile[index++] << iterator->data() << endl;
+	cout << endl;
 	system("pause");
 }
 
@@ -71,8 +70,10 @@ void Student::showStudentByName(string name)
 	vector<string> studentInfo = studentDao.getStudentByName(name);
 	vector<string>::iterator iterator;
 	// 打印获取到的学生信息
+	cout << endl;
+	int index = 0;
 	for (iterator = studentInfo.begin(); iterator != studentInfo.end(); iterator++)
-		cout << iterator->data() << endl;
+		cout << profile[index++] << iterator->data() << endl;
 	system("pause");
 }
 

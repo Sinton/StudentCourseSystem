@@ -5,9 +5,8 @@
 class Student
 {
 public:
-	static vector<Student>::iterator iterStudent; //当前学生序号
-	static vector<Student> vStudents;             //记录学生信息
 	static string loginUid;  // 登录用户
+	static string profile[]; // 学生个人资料标头
 
 	// set属性
 	void setUid(string uid){ this->uid = uid; }
