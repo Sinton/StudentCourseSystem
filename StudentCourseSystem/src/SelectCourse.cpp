@@ -21,6 +21,7 @@ void SelectCourse::createRecord(vector<Course> selectCourses)
 	}
 	SelectCourseDao selectCourseDao;
 	selectCourseDao.addRecord(selectCourse);
+	// 更新课程选课人数
 	system("pause");
 }
 
@@ -61,7 +62,9 @@ void SelectCourse::showAllOptionalCourse()
 			<< "已选人数：" << iter->getMemberJoin() << "\t\t"
 			<< "上课学期：" << iter->getStartTerm() << endl << endl;
 	}
-	SelectCourse::createRecord(selectCourses);
+	cout << "是否要进行选课 (y / n): ";
+	if ("y" == inputString())
+		SelectCourse::createRecord(selectCourses);
 }
 
 void SelectCourse::showAllRecords()

@@ -130,6 +130,9 @@ void Menu::chooseRole()
 	}
 	case '2':
 	{
+		cout << "请输入管理员密码: ";
+		while ("admin" != inputString())
+			cout << "密码错误！请重新输入: ";
 		identity = "管理员";
 		Menu::adminMenu();
 		break;
@@ -194,26 +197,34 @@ void Menu::selectCourseMenu()
 	cout << endl;
 	cout << "1.浏览全部可选课程" << endl;
 	cout << "2.浏览全部已选课程" << endl;
-	cout << "3.退出系统" << endl;
+	cout << "3.返回菜单" << endl;
+	cout << "4.退出系统" << endl;
 	cout << endl;
 	cout << endl;
 	cout << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
 	cout << "\n" << endl;
-	cout << "请选择功能(1~3): ";
-	switch (choose('3'))
+	cout << "请选择功能(1~4): ";
+	switch (choose('4'))
 	{
 	case '1':
 	{
 		SelectCourse selectCourse;
 		selectCourse.showAllOptionalCourse();
+		Menu::selectCourseMenu();
 		break;
 	}
 	case '2':
 	{
 		SelectCourse selectCourse;
 		selectCourse.showAllRecords();
+		Menu::selectCourseMenu();
+		break;
+	}
+	case '3':
+	{
+		Menu::isBack();
 		break;
 	}
 	default:

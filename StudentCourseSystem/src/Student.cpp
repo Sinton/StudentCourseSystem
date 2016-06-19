@@ -10,7 +10,7 @@ string Student::loginUid = "";
 void Student::login()
 {
 	
-	cout << "请输入学号：";
+	cout << "请输入学号: ";
 	loginUid = inputString();
 	StudentDao studentDao;
 	vector<string> studentInfo = studentDao.getStudentByUid(loginUid);

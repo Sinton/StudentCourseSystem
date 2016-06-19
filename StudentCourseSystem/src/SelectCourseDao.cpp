@@ -51,7 +51,7 @@ int SelectCourseDao::callBackGetOptionalCourses(void *, int elementCount, char *
 vector<Course> SelectCourseDao::getOptionalCourses(string uid)
 {
 	selectCourses.clear();
-	string sql = "SELECT * FROM t_course WHERE course_id NOT IN (SELECT course_id FROM t_record WHERE uid = " + uid + ")";
+	string sql = "SELECT * FROM t_course WHERE member_join < member_max AND course_id NOT IN (SELECT course_id FROM t_record WHERE uid = " + uid + ")";
 	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetOptionalCourses, 0, &errorMsg);
 	if (queryResult != SQLITE_OK)
 		cout << errorMsg;
