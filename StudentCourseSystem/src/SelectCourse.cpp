@@ -22,6 +22,8 @@ void SelectCourse::createRecord(vector<Course> selectCourses)
 	SelectCourseDao selectCourseDao;
 	selectCourseDao.addRecord(selectCourse);
 	// 更新课程选课人数
+	Course course;
+	course.modifyMemberJoin(selectCourse.getCourseId());
 	system("pause");
 }
 

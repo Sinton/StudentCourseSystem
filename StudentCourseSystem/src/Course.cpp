@@ -36,12 +36,16 @@ void Course::createCourse()
 
 void Course::updateCourse()
 {
+}
 
+void Course::modifyMemberJoin(string courseId)
+{
+	CourseDao courseDao;
+	courseDao.updateMemberJoin(courseId);
 }
 
 void Course::deleteCourse()
 {
-
 }
 
 void Course::showAllCourses()

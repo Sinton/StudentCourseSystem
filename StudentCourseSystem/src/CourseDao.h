@@ -14,6 +14,8 @@ public:
 	vector<Course> getCourseByCredit(string credit);
 	void addCourse(Course course);
 	void removeCourse();
+	void updateMemberJoin(string courseId);
+	void getMemberJoin(string courseId);
 	CourseDao(){ openDB(DB_NAME); }
 	~CourseDao(){ closeDB(); }
 
@@ -25,6 +27,7 @@ private:
 	static int callBackGetAllCourses(void *, int argc, char **argv, char **colName);
 	static int callBackAddCourse(void *, int argc, char **argv, char **colName);
 	static int callBackRemoveCourse(void *, int argc, char **argv, char **colName);
+	static int callBackGetMemberJoin(void *, int argc, char **argv, char **colName);
 };
 
 #endif
