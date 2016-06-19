@@ -76,6 +76,7 @@ void Course::showAllCourses()
 			<< "已选人数：" << iter->memberJoin << "\t\t"
 			<< "上课学期：" << iter->startTerm << endl << endl;
 	}
+	this->showCourseElectiveDetail();
 	system("pause");
 }
 
@@ -107,6 +108,7 @@ void Course::showCoursesByName(string name)
 			<< "已选人数：" << iter->memberJoin << "\t\t"
 			<< "上课学期：" << iter->startTerm << endl << endl;
 	}
+	this->showCourseElectiveDetail();
 	system("pause");
 }
 
@@ -138,15 +140,27 @@ void Course::showCoursesByCredit(string credit)
 			<< "已选人数：" << iter->memberJoin << "\t\t"
 			<< "上课学期：" << iter->startTerm << endl << endl;
 	}
+	this->showCourseElectiveDetail();
 	system("pause");
+}
+
+void Course::showCourseElectiveDetail()
+{
+	cout << "是否要查看课程的选修情况 (y / n): ";
+	while ("y" == inputString())
+	{
+		cout << "输入课程编号ID查看: ";
+		CourseDao courseDao;
+		courseDao.getMemberJoin(inputString());
+		cout << endl << "已有" << CourseDao::memberJoin << "人选修了该课程" << endl << endl;
+		cout << "是否继续查看 (y / n): ";
+	}
 }
 
 Course::Course()
 {
-
 }
 
 Course::~Course()
 {
-
 }

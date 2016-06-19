@@ -1,6 +1,6 @@
 #include "CourseDao.h"
 
-string memberJoin = "";
+string CourseDao::memberJoin = "";
 int CourseDao::openDB(const char *path)
 {
 	int res = sqlite3_open(path, &sqliteDb);
@@ -105,6 +105,7 @@ void CourseDao::removeCourse()
 void CourseDao::updateMemberJoin(string courseId)
 {
 	char members[10];
+	CourseDao::getMemberJoin(courseId);
 	sprintf_s(members, "%d", atoi(memberJoin.c_str()) + 1);
 	string sql = "UPDATE t_course SET member_join = " + string(members) + " WHERE course_id = " + courseId;
 	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), 0, 0, &errorMsg);
@@ -114,7 +115,7 @@ void CourseDao::updateMemberJoin(string courseId)
 
 int CourseDao::callBackGetMemberJoin(void *, int elementCount, char **element, char **colName)
 {
-	memberJoin = element[0];
+	CourseDao::memberJoin = element[0];
 	return 0;
 }
 

@@ -24,19 +24,19 @@ void Student::login()
 void Student::createStudent()
 {
 	Student student;
-	cout << "请输入学号：" << endl;
+	cout << "请输入学号：";
 	student.setUid(inputString());
-	cout << "请输入姓名：" << endl;
+	cout << "请输入姓名：";
 	student.setName(inputString());
-	cout << "请输入性别：" << endl;
+	cout << "请输入性别：";
 	student.setSex(inputString());
-	cout << "请输入绩点：" << endl;
+	cout << "请输入绩点：";
 	student.setCredit(inputString());
-	cout << "请输入年级：" << endl;
+	cout << "请输入年级：";
 	student.setGrade(inputString());
-	cout << "请输入专业：" << endl;
+	cout << "请输入专业：";
 	student.setMajor(inputString());
-	cout << "请输入院系：" << endl;
+	cout << "请输入院系：";
 	student.setDepartment(inputString());
 	StudentDao studentDao;
 	studentDao.addStudent(student);
@@ -55,6 +55,8 @@ void Student::showStudentByUid(string uid)
 	StudentDao studentDao;
 	vector<string> studentInfo = studentDao.getStudentByUid(uid);
 	vector<string>::iterator iterator;
+	if (studentInfo.empty())
+		cout << endl << "没找到该学生";
 	// 打印获取到的学生信息
 	cout << endl;
 	int index = 0;
@@ -69,11 +71,14 @@ void Student::showStudentByName(string name)
 	StudentDao studentDao;
 	vector<string> studentInfo = studentDao.getStudentByName(name);
 	vector<string>::iterator iterator;
+	if (studentInfo.empty())
+		cout << endl << "没找到该学生";
 	// 打印获取到的学生信息
 	cout << endl;
 	int index = 0;
 	for (iterator = studentInfo.begin(); iterator != studentInfo.end(); iterator++)
 		cout << profile[index++] << iterator->data() << endl;
+	cout << endl;
 	system("pause");
 }
 

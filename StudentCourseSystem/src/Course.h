@@ -41,8 +41,9 @@ public:
 	void modifyMemberJoin(string courseId); // 更新课程信息
 	void deleteCourse();     // 删除课程
 	void showAllCourses();   // 显示全部课程
-	void showCoursesByName(string name);    // 按照课程名称查找课程
-	void showCoursesByCredit(string credit);// 按照课程学分查找课程
+	void showCoursesByName(string name);           // 按照课程名称查找课程
+	void showCoursesByCredit(string credit);       // 按照课程学分查找课程
+	void showCourseElectiveDetail();               //课程选修情况
 	Course();
 	~Course();
 private:

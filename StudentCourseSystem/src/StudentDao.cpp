@@ -40,6 +40,7 @@ int StudentDao::callBackGetStudent(void *, int elementCount, char **element, cha
 
 vector<string> StudentDao::getStudentByUid(string uid)
 {
+	studentInfo.clear();
 	string sql = "SELECT * FROM t_student WHERE uid = '" + string(uid) + "';";
 	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetStudent, 0, &errorMsg);
 	if (queryResult != SQLITE_OK)
@@ -49,6 +50,7 @@ vector<string> StudentDao::getStudentByUid(string uid)
 
 vector<string> StudentDao::getStudentByName(string name)
 {
+	studentInfo.clear();
 	string sql = "SELECT * FROM t_student WHERE name = '" + string(name) + "';";
 	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetStudent, 0, &errorMsg);
 	if (queryResult != SQLITE_OK)

@@ -7,15 +7,17 @@
 class CourseDao
 {
 public:
+	static string memberJoin;
+
 	int openDB(const char *path);
 	int closeDB();
-	vector<Course> getAllCourses();
+	vector<Course> getAllCourses();			// 获取所有课程
 	vector<Course> getCourseByName(string name);
 	vector<Course> getCourseByCredit(string credit);
-	void addCourse(Course course);
-	void removeCourse();
-	void updateMemberJoin(string courseId);
-	void getMemberJoin(string courseId);
+	void addCourse(Course course);          // 添加课程
+	void removeCourse();                    // 删除课程
+	void updateMemberJoin(string courseId); // 更新课程选课人数
+	void getMemberJoin(string courseId);    // 获取课程选课人数
 	CourseDao(){ openDB(DB_NAME); }
 	~CourseDao(){ closeDB(); }
 
