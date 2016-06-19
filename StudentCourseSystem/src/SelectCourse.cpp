@@ -14,7 +14,7 @@ void SelectCourse::createRecord(vector<Course> selectCourses)
 		if (iter->getCourseId() == cid)
 		{
 			selectCourse.courseId = iter->getCourseId();
-			selectCourse.uid = Student::uid;
+			selectCourse.uid = Student::loginUid;
 			selectCourse.courseName = iter->getCourseName();
 			selectCourse.courseCredit = iter->getCourseCredit();
 		}
@@ -37,7 +37,7 @@ void SelectCourse::deleteRecord()
 void SelectCourse::showAllOptionalCourse()
 {
 	SelectCourseDao selectCourseDao;
-	vector<Course> selectCourses = selectCourseDao.getOptionalCourses(Student::uid);
+	vector<Course> selectCourses = selectCourseDao.getOptionalCourses(Student::loginUid);
 	if (selectCourses.empty())
 	{
 		cout << "没有记录课程信息!\n";
@@ -67,7 +67,7 @@ void SelectCourse::showAllOptionalCourse()
 void SelectCourse::showAllRecords()
 {
 	SelectCourseDao selectCourseDao;
-	vector<Course> selectCourses = selectCourseDao.getRecords(Student::uid);
+	vector<Course> selectCourses = selectCourseDao.getRecords(Student::loginUid);
 	if (selectCourses.empty())
 	{
 		cout << "没有记录课程信息!\n";

@@ -2,6 +2,7 @@
 #define _HEADER_H 
 
 #include <iostream> 
+#include <cstdio>
 #include <cstdlib> 
 #include <string>
 #include <sstream>

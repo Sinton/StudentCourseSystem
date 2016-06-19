@@ -1,4 +1,3 @@
-#include <cstdio>
 #include "header.h"
 #include "Menu.h"
 #include "Student.h"
@@ -16,11 +15,7 @@ char choose(char i)
 		cin.ignore(100, '\n');
 	}
 	while (operate == i)
-	{
-		Student student;
-		Course course;
 		exit(0);
-	}
 	return operate;
 }
 

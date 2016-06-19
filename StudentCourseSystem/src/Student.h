@@ -7,7 +7,7 @@ class Student
 public:
 	static vector<Student>::iterator iterStudent; //当前学生序号
 	static vector<Student> vStudents;             //记录学生信息
-	static string uid;       // 学号
+	static string loginUid;  // 登录用户
 
 	// set属性
 	void setUid(string uid){ this->uid = uid; }
@@ -27,16 +27,18 @@ public:
 	string getMajor(){ return major; }
 	string getDepartment(){ return department; }
 
-	int login();                             // 登录
+	void login();                            // 登录
 	void createStudent();                    // 添加学生信息
 	void updateStudent();                    // 更新学生信息
 	void deleteStudent();                    // 删除学生信息
 	void showStudentByUid(string uid);       // 根据学号显示学生信息
 	void showStudentByName(string name);     // 根据姓名显示学生信息
+	void showAllStudents();					 // 获取全部学生
 	Student();
 	~Student();
 
 private:
+	string uid;       // 学号
 	string name;      // 姓名
 	string sex;       // 性别
 	string credit;    // 绩点

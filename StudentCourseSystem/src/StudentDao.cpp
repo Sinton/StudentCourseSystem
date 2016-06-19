@@ -1,6 +1,7 @@
 #include "StudentDao.h"
 
 vector<string> studentInfo;
+vector<Student> students;
 
 int StudentDao::openDB(const char *path)
 {
@@ -39,7 +40,7 @@ int StudentDao::callBackGetStudent(void *, int elementCount, char **element, cha
 
 vector<string> StudentDao::getStudentByUid(string uid)
 {
-	string sql = "SELECT * FROM t_student WHERE uid = " + string(uid);
+	string sql = "SELECT * FROM t_student WHERE uid = '" + string(uid) + "';";
 	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetStudent, 0, &errorMsg);
 	if (queryResult != SQLITE_OK)
 		cout << errorMsg;
@@ -48,11 +49,35 @@ vector<string> StudentDao::getStudentByUid(string uid)
 
 vector<string> StudentDao::getStudentByName(string name)
 {
-	string sql = "SELECT * FROM t_student WHERE name = " + string(name);
+	string sql = "SELECT * FROM t_student WHERE name = '" + string(name) + "';";
 	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetStudent, 0, &errorMsg);
 	if (queryResult != SQLITE_OK)
 		cout << errorMsg;
 	return studentInfo;
+}
+
+int StudentDao::callBackGetAllStudents(void *, int elementCount, char **element, char **colName)
+{
+	Student student;
+	student.setUid(element[0] ? element[0] : "NULL");
+	student.setName(element[1] ? element[1] : "NULL");
+	student.setSex(element[2] ? element[2] : "NULL");
+	student.setCredit(element[3] ? element[3] : "NULL");
+	student.setGrade(element[4] ? element[4] : "NULL");
+	student.setMajor(element[5] ? element[5] : "NULL");
+	student.setDepartment(element[6] ? element[6] : "NULL");
+	students.push_back(student);
+	return 0;
+}
+
+vector<Student> StudentDao::getAllStudents()
+{
+	students.clear();
+	string sql = "SELECT * FROM t_student";
+	int queryResult = sqlite3_exec(sqliteDb, sql.c_str(), callBackGetAllStudents, 0, &errorMsg);
+	if (queryResult != SQLITE_OK)
+		cout << errorMsg;
+	return students;
 }
 
 bool StudentDao::checkUidExits(string uid)

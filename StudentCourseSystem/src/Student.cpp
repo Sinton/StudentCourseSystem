@@ -5,32 +5,21 @@
 vector<Student> stu_vec;
 vector<Student> Student::vStudents = stu_vec;
 vector<Student>::iterator Student::iterStudent = vStudents.begin();
-string Student::uid = "";
+string Student::loginUid = "";
 
-int Student::login()
+void Student::login()
 {
-	system("cls");	
-	while (true)
+	
+	cout << "请输入学号：";
+	loginUid = inputString();
+	StudentDao studentDao;
+	vector<string> studentInfo = studentDao.getStudentByUid(loginUid);
+	if (studentDao.checkUidExits(loginUid))
+		Menu::studentMenu();
+	else
 	{
-		system("cls");
-		cout << "\n\t\t\t       学生登录" << endl;
-		for (int i = 0; i < 80; i++)
-			cout << "*";
-		cout << "请输入学号：";
-		uid = inputString();
-		StudentDao studentDao;
-		vector<string> studentInfo = studentDao.getStudentByUid(uid);
-		if (studentDao.checkUidExits(uid))
-		{
-			Menu::studentMenu();
-		}
-		else
-		{
-			system("cls");
-			cout << "\t\t\t学号错误!请重新输入!" << endl;
-			cout << "\t\t\t该系统还未记录学生信息" << endl;
-			system("pause");
-		}
+		cout << "学号错误!" << endl;
+		this->login();
 	}
 }
 
@@ -38,19 +27,19 @@ void Student::createStudent()
 {
 	Student student;
 	cout << "请输入学号：" << endl;
-	student.uid = inputString();
+	student.setUid(inputString());
 	cout << "请输入姓名：" << endl;
-	student.name = inputString();
+	student.setName(inputString());
 	cout << "请输入性别：" << endl;
-	student.sex = inputString();
+	student.setSex(inputString());
 	cout << "请输入绩点：" << endl;
-	student.credit = inputString();
+	student.setCredit(inputString());
 	cout << "请输入年级：" << endl;
-	student.grade = inputString();
+	student.setGrade(inputString());
 	cout << "请输入专业：" << endl;
-	student.major = inputString();
+	student.setMajor(inputString());
 	cout << "请输入院系：" << endl;
-	student.department = inputString();
+	student.setDepartment(inputString());
 	StudentDao studentDao;
 	studentDao.addStudent(student);
 }
@@ -73,6 +62,7 @@ void Student::showStudentByUid(string uid)
 	// 打印获取到的学生信息
 	for (iterator = studentInfo.begin(); iterator != studentInfo.end(); iterator++)
 		cout << iterator->data() << endl;
+	system("pause");
 }
 
 void Student::showStudentByName(string name)
@@ -83,6 +73,32 @@ void Student::showStudentByName(string name)
 	// 打印获取到的学生信息
 	for (iterator = studentInfo.begin(); iterator != studentInfo.end(); iterator++)
 		cout << iterator->data() << endl;
+	system("pause");
+}
+
+void Student::showAllStudents()
+{
+	StudentDao studentDao;
+	vector<Student> students = studentDao.getAllStudents();
+	if (students.empty())
+	{
+		cout << "没有记录课程信息!\n";
+		system("pause");
+		return;
+	}
+	cout << "\n课程信息如下：\n" << endl;
+	for (vector<Student>::iterator iter = students.begin(); iter != students.end(); iter++)
+	{
+		cout << "=========================================================\n"
+			<< "学号：" << iter->getUid() << endl
+			<< "姓名：" << iter->getName() << endl
+			<< "性别：" << iter->getSex() << endl
+			<< "绩点：" << iter->getCredit() << endl
+			<< "年级：" << iter->getGrade() << endl
+			<< "专业：" << iter->getMajor() << endl
+			<< "院系：" << iter->getDepartment() << endl << endl;
+	}
+	system("pause");
 }
 
 Student::Student()
@@ -98,5 +114,4 @@ Student::Student()
 
 Student::~Student()
 {
-
 }
