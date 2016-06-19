@@ -7,6 +7,7 @@ class Student
 public:
 	static vector<Student>::iterator iterStudent; //当前学生序号
 	static vector<Student> vStudents;             //记录学生信息
+	static string uid;       // 学号
 
 	// set属性
 	void setUid(string uid){ this->uid = uid; }
@@ -36,7 +37,6 @@ public:
 	~Student();
 
 private:
-	string uid;       // 学号
 	string name;      // 姓名
 	string sex;       // 性别
 	string credit;    // 绩点

@@ -2,6 +2,7 @@
 #include "Menu.h"
 #include "Student.h"
 #include "Course.h"
+#include "SelectCourse.h"
 
 string Menu::identity = "";
 
@@ -181,10 +182,14 @@ void Menu::selectCourseMenu()
 	{
 	case '1':
 	{
+		SelectCourse selectCourse;
+		selectCourse.showAllOptionalCourse();
 		break;
 	}
 	case '2':
 	{
+		SelectCourse selectCourse;
+		selectCourse.showAllRecords();
 		break;
 	}
 	default:

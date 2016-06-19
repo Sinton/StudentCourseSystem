@@ -5,7 +5,7 @@
 vector<Student> stu_vec;
 vector<Student> Student::vStudents = stu_vec;
 vector<Student>::iterator Student::iterStudent = vStudents.begin();
-static string uid;
+string Student::uid = "";
 
 int Student::login()
 {
