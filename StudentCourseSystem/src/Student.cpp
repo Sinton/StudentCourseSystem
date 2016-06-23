@@ -88,11 +88,11 @@ void Student::showAllStudents()
 	vector<Student> students = studentDao.getAllStudents();
 	if (students.empty())
 	{
-		cout << "没有记录课程信息!\n";
+		cout << "没有记录学生信息!\n";
 		system("pause");
 		return;
 	}
-	cout << "\n课程信息如下：\n" << endl;
+	cout << "\n学生信息如下：\n" << endl;
 	for (vector<Student>::iterator iter = students.begin(); iter != students.end(); iter++)
 	{
 		cout << "=========================================================\n"

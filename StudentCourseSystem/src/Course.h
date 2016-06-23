@@ -38,7 +38,7 @@ public:
 
 	void createCourse();     // 添加课程
 	void updateCourse();     // 更新课程信息
-	void modifyMemberJoin(string courseId); // 更新课程信息
+	void modifyMemberJoin(string courseId); // 更新参与该课程的人数
 	void deleteCourse();     // 删除课程
 	void showAllCourses();   // 显示全部课程
 	void showCoursesByName(string name);           // 按照课程名称查找课程

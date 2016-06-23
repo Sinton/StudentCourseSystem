@@ -19,4 +19,4 @@ int inputNumber();   //ÊäÈëÊı×Ö
 char inputChar();    //ÊäÈë×Ö·û 
 string inputString();//ÊäÈë×Ö·û´® 
 
-#endif 
+#endif
