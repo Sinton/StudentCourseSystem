@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Course" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMAwKLKHACAIUAADAYQAAuAAIAACEAAJAwIAJQABhAU=</HashCode>
+      <FileName>src\Course.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseDao">
+    <Position X="0.5" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAUAQAIBAABAAAEAQAAAAAAAAAAAAIIAAACAAABEAA=</HashCode>
+      <FileName>src\CourseDao.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DBHelper">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAQQAAAAgAAACQAAAAAAgAAA=</HashCode>
+      <FileName>src\DBHelper.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABAEAAhAAAAAAAAAAAAAAAAIABgAAAAAAABACAA=</HashCode>
+      <FileName>src\Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SelectCourse" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIIACAAAKWAABAAAAAAAAEQBAAAAgAAIApAQAhBA=</HashCode>
+      <FileName>src\SelectCourse.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SelectCourseDao">
+    <Position X="5" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAgBAAAACAAAIAQAAAAAAAAAAAAAAAAAAAAAARAAA=</HashCode>
+      <FileName>src\SelectCourseDao.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Student" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ECAQgQIBQAAAEABCBQYAAQAQAQAEUABAAQEUQAQAMBA=</HashCode>
+      <FileName>src\Student.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentDao">
+    <Position X="2.75" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAABAAAAEAAAAAAQAAAABAAAABAAAAAAwACAAQ=</HashCode>
+      <FileName>src\StudentDao.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
