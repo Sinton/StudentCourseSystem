@@ -5,10 +5,10 @@
 class Student
 {
 public:
-	static string loginUid;  // µÇÂ¼ÓÃ»§
-	static string profile[]; // Ñ§Éú¸öÈË×ÊÁÏ±êÍ·
+	static string loginUid;  // ç™»å½•ç”¨æˆ·
+	static string profile[]; // å­¦ç”Ÿä¸ªäººèµ„æ–™æ ‡å¤´
 
-	// setÊôĞÔ
+	// setå±æ€§
 	void setUid(string uid){ this->uid = uid; }
 	void setName(string name){ this->name = name; }
 	void setSex(string sex){ this->sex = sex; }
@@ -17,7 +17,7 @@ public:
 	void setMajor(string major){ this->major = major; }
 	void setDepartment(string department){ this->department = department; }
 
-	// getÊôĞÔ
+	// getå±æ€§
 	string getUid(){ return uid; }
 	string getName(){ return name; }
 	string getSex(){ return sex; }
@@ -26,24 +26,24 @@ public:
 	string getMajor(){ return major; }
 	string getDepartment(){ return department; }
 
-	void login();                            // µÇÂ¼
-	void createStudent();                    // Ìí¼ÓÑ§ÉúĞÅÏ¢
-	void updateStudent();                    // ¸üĞÂÑ§ÉúĞÅÏ¢
-	void deleteStudent();                    // É¾³ıÑ§ÉúĞÅÏ¢
-	void showStudentByUid(string uid);       // ¸ù¾İÑ§ºÅÏÔÊ¾Ñ§ÉúĞÅÏ¢
-	void showStudentByName(string name);     // ¸ù¾İĞÕÃûÏÔÊ¾Ñ§ÉúĞÅÏ¢
-	void showAllStudents();					 // »ñÈ¡È«²¿Ñ§Éú
+	void login();                            // ç™»å½•
+	void createStudent();                    // æ·»åŠ å­¦ç”Ÿä¿¡æ¯
+	void updateStudent();                    // æ›´æ–°å­¦ç”Ÿä¿¡æ¯
+	void deleteStudent();                    // åˆ é™¤å­¦ç”Ÿä¿¡æ¯
+	void showStudentByUid(string uid);       // æ ¹æ®å­¦å·æ˜¾ç¤ºå­¦ç”Ÿä¿¡æ¯
+	void showStudentByName(string name);     // æ ¹æ®å§“åæ˜¾ç¤ºå­¦ç”Ÿä¿¡æ¯
+	void showAllStudents();                  // è·å–å…¨éƒ¨å­¦ç”Ÿ
 	Student();
 	~Student();
 
 private:
-	string uid;       // Ñ§ºÅ
-	string name;      // ĞÕÃû
-	string sex;       // ĞÔ±ğ
-	string credit;    // ¼¨µã
-	string grade;     // Äê¼¶
-	string major;     // ×¨Òµ
-	string department;// ÔºÏµ
+	string uid;       // å­¦å·
+	string name;      // å§“å
+	string sex;       // æ€§åˆ«
+	string credit;    // ç»©ç‚¹
+	string grade;     // å¹´çº§
+	string major;     // ä¸“ä¸š
+	string department;// é™¢ç³»
 };
 
 #endif

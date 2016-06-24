@@ -10,7 +10,7 @@ char choose(char i)
 	cin.ignore(100, '\n');
 	while (operate < '1' || operate > i)
 	{
-		cout << "输入错误!\t重新输入: ";
+		cout << "杈撳叆閿欒!\t閲嶆柊杈撳叆: ";
 		cin >> operate;
 		cin.ignore(100, '\n');
 	}
@@ -27,7 +27,7 @@ int inputNumber()
 	cin.ignore(100, '\n');
 	while (numberTemp == 0)
 	{
-		cout << "输入错误!需输入数字!\n重新输入: ";
+		cout << "杈撳叆閿欒!闇�杈撳叆鏁板瓧!\n閲嶆柊杈撳叆: ";
 		cin.ignore(100, '\n');
 		cin >> number;
 		numberTemp = number;

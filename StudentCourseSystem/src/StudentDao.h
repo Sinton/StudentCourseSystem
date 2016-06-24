@@ -8,12 +8,12 @@
 class StudentDao : public DBHelper
 {
 public:
-	bool checkUidExits(string uid);              // ¼ì²éÑ§ÉúÑ§ºÅÊÇ·ñ´æÔÚ
-	void addStudent(Student student);            // Ìí¼ÓÑ§Éú
-	void removeStudent();                        // É¾³ıÑ§Éú
-	vector<string> getStudentByUid(string uid);  // »ñÈ¡Ö¸¶¨Ñ§ºÅµÄÑ§Éú¶ÔÏó
-	vector<string> getStudentByName(string name);// »ñÈ¡Ö¸¶¨Ñ§ºÅµÄÑ§Éú¶ÔÏó
-	vector<Student> getAllStudents();            // »ñÈ¡È«²¿Ñ§Éú
+	bool checkUidExits(string uid);              // æ£€æŸ¥å­¦ç”Ÿå­¦å·æ˜¯å¦å­˜åœ¨
+	void addStudent(Student student);            // æ·»åŠ å­¦ç”Ÿ
+	void removeStudent();                        // åˆ é™¤å­¦ç”Ÿ
+	vector<string> getStudentByUid(string uid);  // è·å–æŒ‡å®šå­¦å·çš„å­¦ç”Ÿå¯¹è±¡
+	vector<string> getStudentByName(string name);// è·å–æŒ‡å®šå­¦å·çš„å­¦ç”Ÿå¯¹è±¡
+	vector<Student> getAllStudents();            // è·å–å…¨éƒ¨å­¦ç”Ÿ
 	StudentDao(){ openDB(DB_NAME); }
 	~StudentDao(){ }
 

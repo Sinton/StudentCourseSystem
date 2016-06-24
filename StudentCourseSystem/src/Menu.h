@@ -4,13 +4,13 @@ public:
 	friend char choose(char i);
 	friend int inputNumber();
 	static string identity;
-	static void isBack();          // ·µ»ØÖ÷²Ëµ¥
-	static void chooseRole();      // Ñ¡Ôñ½ÇÉ«
-	static void studentMenu();     // Ñ§Éú²Ëµ¥
-	static void adminMenu();      // ¹ÜÀíÏµÍ³²Ëµ¥
-	static void selectCourseMenu();// Ñ¡¿Î²Ëµ¥
-	static void courseInfoSearchMenu();  // ¿Î³ÌĞÅÏ¢²éÑ¯²Ëµ¥
-	static void studentInfoSearchMenu(); // Ñ§ÉúĞÅÏ¢²éÑ¯²Ëµ¥
+	static void isBack();                // è¿”å›ä¸»èœå•
+	static void chooseRole();            // é€‰æ‹©è§’è‰²
+	static void studentMenu();           // å­¦ç”Ÿèœå•
+	static void adminMenu();             // ç®¡ç†ç³»ç»Ÿèœå•
+	static void selectCourseMenu();      // é€‰è¯¾èœå•
+	static void courseInfoSearchMenu();  // è¯¾ç¨‹ä¿¡æ¯æŸ¥è¯¢èœå•
+	static void studentInfoSearchMenu(); // å­¦ç”Ÿä¿¡æ¯æŸ¥è¯¢èœå•
 	Menu();
 	~Menu();
 private:

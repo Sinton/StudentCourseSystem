@@ -1,8 +1,8 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include "DBHelper.h"
 
 /**
- *  ´ò¿ªÊı¾İÁ¬½Ó
+ *  æ‰“å¼€æ•°æ®è¿æ¥
  *  @return
  */
 int DBHelper::openDB(const char *path)
@@ -10,7 +10,7 @@ int DBHelper::openDB(const char *path)
 	int res = sqlite3_open(path, &sqliteDb);
 	if (res)
 	{
-		std::cout << "ÎŞ·¨´ò¿ªÊı¾İ¿â: " << sqlite3_errmsg(sqliteDb);
+		std::cout << "æ— æ³•æ‰“å¼€æ•°æ®åº“: " << sqlite3_errmsg(sqliteDb);
 		sqlite3_close(sqliteDb);
 		return -1;
 	}
@@ -19,7 +19,7 @@ int DBHelper::openDB(const char *path)
 }
 
 /**
- *  ¹Ø±ÕÊı¾İ¿âÁ¬½Ó
+ *  å…³é—­æ•°æ®åº“è¿æ¥
  *  @return
  */
 int DBHelper::closeDB()
@@ -29,7 +29,7 @@ int DBHelper::closeDB()
 		int res = sqlite3_close(sqliteDb);
 		if (res)
 		{
-			std::cout << "ÎŞ·¨¹Ø±ÕÊı¾İ¿â: " << sqlite3_errmsg(sqliteDb);
+			std::cout << "æ— æ³•å…³é—­æ•°æ®åº“: " << sqlite3_errmsg(sqliteDb);
 			return -1;
 		}
 	}

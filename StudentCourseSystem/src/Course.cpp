@@ -8,27 +8,27 @@ vector<Course> Course::courseVector = courses;
 void Course::createCourse()
 {
 	Course course;
-	cout << "ÇëÊäÈë¿Î³ÌÃû³Æ£º";
+	cout << "è¯·è¾“å…¥è¯¾ç¨‹åç§°ï¼š";
 	course.courseName = inputString();
-	cout << "ÇëÊäÈë¿Î³ÌÑ§·Ö£º";
+	cout << "è¯·è¾“å…¥è¯¾ç¨‹å­¦åˆ†ï¼š";
 	course.courseCredit = inputString();
-	cout << "ÇëÊäÈë¿Î³ÌÐÔÖÊ£º";
+	cout << "è¯·è¾“å…¥è¯¾ç¨‹æ€§è´¨ï¼š";
 	course.property = inputString();
-	cout << "ÇëÊäÈë¿Î³ÌÊÚ¿Î½ÌÊ¦£º";
+	cout << "è¯·è¾“å…¥è¯¾ç¨‹æŽˆè¯¾æ•™å¸ˆï¼š";
 	course.teacher = inputString();
-	cout << "ÇëÊäÈë¿Î³ÌËùÊôÔºÏµ£º";
+	cout << "è¯·è¾“å…¥è¯¾ç¨‹æ‰€å±žé™¢ç³»ï¼š";
 	course.courseDepartment = inputString();
-	cout << "ÇëÊäÈë¿Î³Ì×ÜÑ§Ê±£º";
+	cout << "è¯·è¾“å…¥è¯¾ç¨‹æ€»å­¦æ—¶ï¼š";
 	course.totalPeriod = inputString();
-	cout << "ÇëÊäÈë¿Î³ÌÊÚ¿ÎÑ§Ê±£º";
+	cout << "è¯·è¾“å…¥è¯¾ç¨‹æŽˆè¯¾å­¦æ—¶ï¼š";
 	course.classPeriod = inputString();
-	cout << "ÇëÊäÈë¿Î³ÌÊµÑéÑ§Ê±£º";
+	cout << "è¯·è¾“å…¥è¯¾ç¨‹å®žéªŒå­¦æ—¶ï¼š";
 	course.labPeriod = inputString();
-	cout << "ÇëÊäÈë¿Î³ÌÑ¡¿ÎÈËÊýÉÏÏÞ£º";
+	cout << "è¯·è¾“å…¥è¯¾ç¨‹é€‰è¯¾äººæ•°ä¸Šé™ï¼š";
 	course.memberMax = inputString();
-	cout << "ÇëÊäÈë¿Î³ÌÒÑÑ¡ÈËÊý£º";
+	cout << "è¯·è¾“å…¥è¯¾ç¨‹å·²é€‰äººæ•°ï¼š";
 	course.memberJoin = inputString();
-	cout << "ÇëÊäÈë¿Î³Ì¿ª¿ÎÑ§ÆÚ£º";
+	cout << "è¯·è¾“å…¥è¯¾ç¨‹å¼€è¯¾å­¦æœŸï¼š";
 	course.startTerm = inputString();
 	CourseDao courseDao;
 	courseDao.addCourse(course);
@@ -55,26 +55,26 @@ void Course::showAllCourses()
 	Course::courseVector = courseDao.getAllCourses();
 	if (courseVector.empty())
 	{
-		cout << "Ã»ÓÐ¼ÇÂ¼¿Î³ÌÐÅÏ¢!\n";
+		cout << "æ²¡æœ‰è®°å½•è¯¾ç¨‹ä¿¡æ¯!\n";
 		system("pause");
 		return;
 	}
-	cout << "\n¿Î³ÌÐÅÏ¢ÈçÏÂ£º\n" << endl;
+	cout << "\nè¯¾ç¨‹ä¿¡æ¯å¦‚ä¸‹ï¼š\n" << endl;
 	for (vector<Course>::iterator iter = courseVector.begin(); iter != courseVector.end(); iter++)
 	{
 		cout << "=========================================================\n"
-			<< "¿Î³Ì±àºÅ£º" << iter->courseId << "\t\t"
-			<< "¿Î³ÌÃû³Æ£º" << iter->courseName << endl
-			<< "¿Î³ÌÑ§·Ö£º" << iter->courseCredit << "\t\t"
-			<< "¿Î³ÌÐÔÖÊ£º" << iter->property << endl
-			<< "ÊÚ¿ÎÀÏÊ¦£º" << iter->teacher << "¡¡\t"
-			<< "¿ª¿ÎÔºÏµ£º" << iter->courseDepartment << endl
-			<< "×ÜÑ§Ê±£º" << iter->totalPeriod << "\t\t"
-			<< "ÊÚ¿ÎÑ§Ê±£º" << iter->classPeriod << endl
-			<< "ÊµÑéÑ§Ê±£º" << iter->labPeriod << "\t\t"
-			<< "ÈËÊýÉÏÏÞ£º" << iter->memberMax << endl
-			<< "ÒÑÑ¡ÈËÊý£º" << iter->memberJoin << "\t\t"
-			<< "ÉÏ¿ÎÑ§ÆÚ£º" << iter->startTerm << endl << endl;
+			<< "è¯¾ç¨‹ç¼–å·ï¼š" << iter->courseId << "\t\t"
+			<< "è¯¾ç¨‹åç§°ï¼š" << iter->courseName << endl
+			<< "è¯¾ç¨‹å­¦åˆ†ï¼š" << iter->courseCredit << "\t\t"
+			<< "è¯¾ç¨‹æ€§è´¨ï¼š" << iter->property << endl
+			<< "æŽˆè¯¾è€å¸ˆï¼š" << iter->teacher << "ã€€\t"
+			<< "å¼€è¯¾é™¢ç³»ï¼š" << iter->courseDepartment << endl
+			<< "æ€»å­¦æ—¶ï¼š" << iter->totalPeriod << "\t\t"
+			<< "æŽˆè¯¾å­¦æ—¶ï¼š" << iter->classPeriod << endl
+			<< "å®žéªŒå­¦æ—¶ï¼š" << iter->labPeriod << "\t\t"
+			<< "äººæ•°ä¸Šé™ï¼š" << iter->memberMax << endl
+			<< "å·²é€‰äººæ•°ï¼š" << iter->memberJoin << "\t\t"
+			<< "ä¸Šè¯¾å­¦æœŸï¼š" << iter->startTerm << endl << endl;
 	}
 	this->showCourseElectiveDetail();
 	system("pause");
@@ -87,26 +87,26 @@ void Course::showCoursesByName(string name)
 	Course::courseVector = courseDao.getCourseByName(name);
 	if (courseVector.empty())
 	{
-		cout << "ÕÒ²»µ½¿Î³ÌÃû³ÆÎª" << name << "µÄ¿Î³ÌÐÅÏ¢!\n";
+		cout << "æ‰¾ä¸åˆ°è¯¾ç¨‹åç§°ä¸º" << name << "çš„è¯¾ç¨‹ä¿¡æ¯!\n";
 		system("pause");
 		return;
 	}
-	cout << "\n¿Î³ÌÐÅÏ¢ÈçÏÂ£º\n" << endl;
+	cout << "\nè¯¾ç¨‹ä¿¡æ¯å¦‚ä¸‹ï¼š\n" << endl;
 	for (vector<Course>::iterator iter = courseVector.begin(); iter != courseVector.end(); iter++)
 	{
 		cout << "=========================================================\n"
-			<< "¿Î³Ì±àºÅ£º" << iter->courseId << "\t\t"
-			<< "¿Î³ÌÃû³Æ£º" << iter->courseName << endl
-			<< "¿Î³ÌÑ§·Ö£º" << iter->courseCredit << "\t\t"
-			<< "¿Î³ÌÐÔÖÊ£º" << iter->property << endl
-			<< "ÊÚ¿ÎÀÏÊ¦£º" << iter->teacher << "¡¡\t"
-			<< "¿ª¿ÎÔºÏµ£º" << iter->courseDepartment << endl
-			<< "×ÜÑ§Ê±£º" << iter->totalPeriod << "\t\t"
-			<< "ÊÚ¿ÎÑ§Ê±£º" << iter->classPeriod << endl
-			<< "ÊµÑéÑ§Ê±£º" << iter->labPeriod << "\t\t"
-			<< "ÈËÊýÉÏÏÞ£º" << iter->memberMax << endl
-			<< "ÒÑÑ¡ÈËÊý£º" << iter->memberJoin << "\t\t"
-			<< "ÉÏ¿ÎÑ§ÆÚ£º" << iter->startTerm << endl << endl;
+			<< "è¯¾ç¨‹ç¼–å·ï¼š" << iter->courseId << "\t\t"
+			<< "è¯¾ç¨‹åç§°ï¼š" << iter->courseName << endl
+			<< "è¯¾ç¨‹å­¦åˆ†ï¼š" << iter->courseCredit << "\t\t"
+			<< "è¯¾ç¨‹æ€§è´¨ï¼š" << iter->property << endl
+			<< "æŽˆè¯¾è€å¸ˆï¼š" << iter->teacher << "ã€€\t"
+			<< "å¼€è¯¾é™¢ç³»ï¼š" << iter->courseDepartment << endl
+			<< "æ€»å­¦æ—¶ï¼š" << iter->totalPeriod << "\t\t"
+			<< "æŽˆè¯¾å­¦æ—¶ï¼š" << iter->classPeriod << endl
+			<< "å®žéªŒå­¦æ—¶ï¼š" << iter->labPeriod << "\t\t"
+			<< "äººæ•°ä¸Šé™ï¼š" << iter->memberMax << endl
+			<< "å·²é€‰äººæ•°ï¼š" << iter->memberJoin << "\t\t"
+			<< "ä¸Šè¯¾å­¦æœŸï¼š" << iter->startTerm << endl << endl;
 	}
 	this->showCourseElectiveDetail();
 	system("pause");
@@ -119,26 +119,26 @@ void Course::showCoursesByCredit(string credit)
 	Course::courseVector = courseDao.getCourseByCredit(credit);
 	if (courseVector.empty())
 	{
-		cout << "ÕÒ²»µ½¿Î³ÌÑ§·ÖÎª" << credit << "µÄ¿Î³ÌÐÅÏ¢!\n";
+		cout << "æ‰¾ä¸åˆ°è¯¾ç¨‹å­¦åˆ†ä¸º" << credit << "çš„è¯¾ç¨‹ä¿¡æ¯!\n";
 		system("pause");
 		return;
 	}
-	cout << "\n¿Î³ÌÐÅÏ¢ÈçÏÂ£º\n" << endl;
+	cout << "\nè¯¾ç¨‹ä¿¡æ¯å¦‚ä¸‹ï¼š\n" << endl;
 	for (vector<Course>::iterator iter = courseVector.begin(); iter != courseVector.end(); iter++)
 	{
 		cout << "=========================================================\n"
-			<< "¿Î³Ì±àºÅ£º" << iter->courseId << "\t\t"
-			<< "¿Î³ÌÃû³Æ£º" << iter->courseName << endl
-			<< "¿Î³ÌÑ§·Ö£º" << iter->courseCredit << "\t\t"
-			<< "¿Î³ÌÐÔÖÊ£º" << iter->property << endl
-			<< "ÊÚ¿ÎÀÏÊ¦£º" << iter->teacher << "¡¡\t"
-			<< "¿ª¿ÎÔºÏµ£º" << iter->courseDepartment << endl
-			<< "×ÜÑ§Ê±£º" << iter->totalPeriod << "\t\t"
-			<< "ÊÚ¿ÎÑ§Ê±£º" << iter->classPeriod << endl
-			<< "ÊµÑéÑ§Ê±£º" << iter->labPeriod << "\t\t"
-			<< "ÈËÊýÉÏÏÞ£º" << iter->memberMax << endl
-			<< "ÒÑÑ¡ÈËÊý£º" << iter->memberJoin << "\t\t"
-			<< "ÉÏ¿ÎÑ§ÆÚ£º" << iter->startTerm << endl << endl;
+			<< "è¯¾ç¨‹ç¼–å·ï¼š" << iter->courseId << "\t\t"
+			<< "è¯¾ç¨‹åç§°ï¼š" << iter->courseName << endl
+			<< "è¯¾ç¨‹å­¦åˆ†ï¼š" << iter->courseCredit << "\t\t"
+			<< "è¯¾ç¨‹æ€§è´¨ï¼š" << iter->property << endl
+			<< "æŽˆè¯¾è€å¸ˆï¼š" << iter->teacher << "ã€€\t"
+			<< "å¼€è¯¾é™¢ç³»ï¼š" << iter->courseDepartment << endl
+			<< "æ€»å­¦æ—¶ï¼š" << iter->totalPeriod << "\t\t"
+			<< "æŽˆè¯¾å­¦æ—¶ï¼š" << iter->classPeriod << endl
+			<< "å®žéªŒå­¦æ—¶ï¼š" << iter->labPeriod << "\t\t"
+			<< "äººæ•°ä¸Šé™ï¼š" << iter->memberMax << endl
+			<< "å·²é€‰äººæ•°ï¼š" << iter->memberJoin << "\t\t"
+			<< "ä¸Šè¯¾å­¦æœŸï¼š" << iter->startTerm << endl << endl;
 	}
 	this->showCourseElectiveDetail();
 	system("pause");
@@ -146,14 +146,14 @@ void Course::showCoursesByCredit(string credit)
 
 void Course::showCourseElectiveDetail()
 {
-	cout << "ÊÇ·ñÒª²é¿´¿Î³ÌµÄÑ¡ÐÞÇé¿ö (y / n): ";
+	cout << "æ˜¯å¦è¦æŸ¥çœ‹è¯¾ç¨‹çš„é€‰ä¿®æƒ…å†µ (y / n): ";
 	while ("y" == inputString())
 	{
-		cout << "ÊäÈë¿Î³Ì±àºÅID²é¿´: ";
+		cout << "è¾“å…¥è¯¾ç¨‹ç¼–å·IDæŸ¥çœ‹: ";
 		CourseDao courseDao;
 		courseDao.getMemberJoin(inputString());
-		cout << endl << "ÒÑÓÐ" << CourseDao::memberJoin << "ÈËÑ¡ÐÞÁË¸Ã¿Î³Ì" << endl << endl;
-		cout << "ÊÇ·ñ¼ÌÐø²é¿´ (y / n): ";
+		cout << endl << "å·²æœ‰" << CourseDao::memberJoin << "äººé€‰ä¿®äº†è¯¥è¯¾ç¨‹" << endl << endl;
+		cout << "æ˜¯å¦ç»§ç»­æŸ¥çœ‹ (y / n): ";
 	}
 }
 

@@ -5,10 +5,10 @@
 class Course
 {
 public:
-	//¼ÇÂ¼¿Î³ÌĞÅÏ¢
+	//è®°å½•è¯¾ç¨‹ä¿¡æ¯
 	static vector<Course> courseVector;
 
-	// setÊôĞÔ
+	// setå±æ€§
 	void setCourseId(string courseId){ this->courseId = courseId; }
 	void setCourseName(string courseName){ this->courseName = courseName; }
 	void setCourseCredit(string courseCredit){ this->courseCredit = courseCredit; }
@@ -22,7 +22,7 @@ public:
 	void setMemberJoin(string memberJoin){ this->memberJoin = memberJoin; }
 	void setStartTerm(string startTerm){ this->startTerm = startTerm; }
 
-	// getÊôĞÔ
+	// getå±æ€§
 	string getCourseId(){ return courseId; }
 	string getCourseName(){ return courseName; }
 	string getCourseCredit(){ return courseCredit; }
@@ -36,29 +36,29 @@ public:
 	string getMemberJoin(){ return memberJoin; }
 	string getStartTerm(){ return startTerm; }
 
-	void createCourse();     // Ìí¼Ó¿Î³Ì
-	void updateCourse();     // ¸üĞÂ¿Î³ÌĞÅÏ¢
-	void modifyMemberJoin(string courseId); // ¸üĞÂ²ÎÓë¸Ã¿Î³ÌµÄÈËÊı
-	void deleteCourse();     // É¾³ı¿Î³Ì
-	void showAllCourses();   // ÏÔÊ¾È«²¿¿Î³Ì
-	void showCoursesByName(string name);           // °´ÕÕ¿Î³ÌÃû³Æ²éÕÒ¿Î³Ì
-	void showCoursesByCredit(string credit);       // °´ÕÕ¿Î³ÌÑ§·Ö²éÕÒ¿Î³Ì
-	void showCourseElectiveDetail();               //¿Î³ÌÑ¡ĞŞÇé¿ö
+	void createCourse();                      // æ·»åŠ è¯¾ç¨‹
+	void updateCourse();                      // æ›´æ–°è¯¾ç¨‹ä¿¡æ¯
+	void modifyMemberJoin(string courseId);   // æ›´æ–°å‚ä¸è¯¥è¯¾ç¨‹çš„äººæ•°
+	void deleteCourse();                      // åˆ é™¤è¯¾ç¨‹
+	void showAllCourses();                    // æ˜¾ç¤ºå…¨éƒ¨è¯¾ç¨‹
+	void showCoursesByName(string name);      // æŒ‰ç…§è¯¾ç¨‹åç§°æŸ¥æ‰¾è¯¾ç¨‹
+	void showCoursesByCredit(string credit);  // æŒ‰ç…§è¯¾ç¨‹å­¦åˆ†æŸ¥æ‰¾è¯¾ç¨‹
+	void showCourseElectiveDetail();          //è¯¾ç¨‹é€‰ä¿®æƒ…å†µ
 	Course();
 	~Course();
 private:
-	string courseId;           // ¿Î³Ì±àºÅ
-	string courseName;         // ¿Î³ÌÃû³Æ
-	string courseCredit;       // ¿Î³ÌÑ§·Ö
-	string property;           // ¿Î³ÌĞÔÖÊ
-	string teacher;            // ÊÚ¿Î½ÌÊ¦
-	string courseDepartment;   // ¿ª¿ÎÔºÏµ
-	string totalPeriod;        // ×Ü¿ÎÊ±
-	string classPeriod;        // ÉÏ¿Î¿ÎÊ±
-	string labPeriod;          // ÊµÑé¿ÎÊ±
-	string memberMax;          // ÈËÊıÉÏÏŞ
-	string memberJoin;         // ÒÑÑ¡ÈËÊı
-	string startTerm;          // ¿ªÊ¼ÊÚ¿ÎÑ§ÆÚ
+	string courseId;           // è¯¾ç¨‹ç¼–å·
+	string courseName;         // è¯¾ç¨‹åç§°
+	string courseCredit;       // è¯¾ç¨‹å­¦åˆ†
+	string property;           // è¯¾ç¨‹æ€§è´¨
+	string teacher;            // æˆè¯¾æ•™å¸ˆ
+	string courseDepartment;   // å¼€è¯¾é™¢ç³»
+	string totalPeriod;        // æ€»è¯¾æ—¶
+	string classPeriod;        // ä¸Šè¯¾è¯¾æ—¶
+	string labPeriod;          // å®éªŒè¯¾æ—¶
+	string memberMax;          // äººæ•°ä¸Šé™
+	string memberJoin;         // å·²é€‰äººæ•°
+	string startTerm;          // å¼€å§‹æˆè¯¾å­¦æœŸ
 };
 
 #endif

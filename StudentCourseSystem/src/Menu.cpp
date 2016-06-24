@@ -9,20 +9,20 @@ string Menu::identity = "";
 void Menu::adminMenu()
 {
 	system("cls");
-	cout << "\n\t\t\t       ÏµÍ³¹ÜÀí²Ëµ¥" << endl;
+	cout << "\n\t\t\t       ç³»ç»Ÿç®¡ç†èœå•" << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
 	cout << endl;
-	cout << "1.Â¼Èë¿Î³Ì" << endl;
-	cout << "2.Â¼ÈëÑ§Éú" << endl;
-	cout << "3.²éÑ¯¿Î³Ì" << endl;
-	cout << "4.²éÑ¯Ñ§Éú" << endl;
-	cout << "5.·µ»Ø²Ëµ¥" << endl;
-	cout << "6.ÍË³öÏµÍ³" << endl;
+	cout << "1.å½•å…¥è¯¾ç¨‹" << endl;
+	cout << "2.å½•å…¥å­¦ç”Ÿ" << endl;
+	cout << "3.æŸ¥è¯¢è¯¾ç¨‹" << endl;
+	cout << "4.æŸ¥è¯¢å­¦ç”Ÿ" << endl;
+	cout << "5.è¿”å›èœå•" << endl;
+	cout << "6.é€€å‡ºç³»ç»Ÿ" << endl;
 	cout << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
-	cout << endl << "ÇëÑ¡Ôñ¹¦ÄÜ(1~6): ";
+	cout << endl << "è¯·é€‰æ‹©åŠŸèƒ½(1~6): ";
 	switch (choose('6')) 
 	{
 	case '1':
@@ -64,12 +64,12 @@ void Menu::adminMenu()
 void Menu::isBack()
 {
 	system("cls");
-	cout << "\n\t\t\t       ·µ»Ø²Ëµ¥" << endl;
+	cout << "\n\t\t\t       è¿”å›èœå•" << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
 	cout << endl;
-	cout << "1.·µ»ØÖ÷²Ëµ¥" << endl;
-	cout << "2.·µ»ØÏµÍ³²Ëµ¥" << endl;
+	cout << "1.è¿”å›ä¸»èœå•" << endl;
+	cout << "2.è¿”å›ç³»ç»Ÿèœå•" << endl;
 	cout << endl;
 	cout << endl;
 	cout << endl;
@@ -77,18 +77,18 @@ void Menu::isBack()
 	cout << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
-	cout << endl << "ÇëÑ¡Ôñ¹¦ÄÜ(1~2): ";
+	cout << endl << "è¯·é€‰æ‹©åŠŸèƒ½(1~2): ";
 	char choose = inputChar();
 	while (choose != '1' && choose != '2')
 	{
-		cout << "\nÑ¡Ôñ´íÎó!ÖØĞÂÑ¡Ôñ:";
+		cout << "\né€‰æ‹©é”™è¯¯!é‡æ–°é€‰æ‹©:";
 		choose = inputChar();
 	}
 	switch (choose)
 	{
 	case '1':
 	{
-		if (identity == "Ñ§Éú")
+		if (identity == "å­¦ç”Ÿ")
 			Menu::studentMenu();
 		else
 			Menu::adminMenu();
@@ -105,35 +105,35 @@ void Menu::isBack()
 void Menu::chooseRole()
 {
 	system("cls");
-	cout << "\n\t\t\t       »¶Ó­Ê¹ÓÃÑ§ÉúÑ¡¿ÎÏµÍ³" << endl;
+	cout << "\n\t\t\t       æ¬¢è¿ä½¿ç”¨å­¦ç”Ÿé€‰è¯¾ç³»ç»Ÿ" << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
 	cout << endl;
-	cout << "1.Ñ§ÉúµÇÂ¼" << endl;
-	cout << "2.½øÈë¹ÜÀíÏµÍ³" << endl;
-	cout << "3.ÍË³öÏµÍ³" << endl;
+	cout << "1.å­¦ç”Ÿç™»å½•" << endl;
+	cout << "2.è¿›å…¥ç®¡ç†ç³»ç»Ÿ" << endl;
+	cout << "3.é€€å‡ºç³»ç»Ÿ" << endl;
 	cout << endl;
 	cout << endl;
 	cout << endl;
 	cout << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
-	cout << endl << "ÇëÑ¡Ôñ¹¦ÄÜ(1~3): ";
+	cout << endl << "è¯·é€‰æ‹©åŠŸèƒ½(1~3): ";
 	switch (choose('3'))
 	{
 	case '1':
 	{
-		identity = "Ñ§Éú";
+		identity = "å­¦ç”Ÿ";
 		Student student;
 		student.login();
 		break;
 	}
 	case '2':
 	{
-		cout << "ÇëÊäÈë¹ÜÀíÔ±ÃÜÂë: ";
+		cout << "è¯·è¾“å…¥ç®¡ç†å‘˜å¯†ç : ";
 		while ("admin" != inputString())
-			cout << "ÃÜÂë´íÎó£¡ÇëÖØĞÂÊäÈë: ";
-		identity = "¹ÜÀíÔ±";
+			cout << "å¯†ç é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥: ";
+		identity = "ç®¡ç†å‘˜";
 		Menu::adminMenu();
 		break;
 	}
@@ -145,20 +145,20 @@ void Menu::chooseRole()
 void Menu::studentMenu()
 {
 	system("cls");
-	cout << "\n\t\t\t       Ñ§Éú²Ëµ¥" << endl;
+	cout << "\n\t\t\t       å­¦ç”Ÿèœå•" << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
 	cout << endl;
-	cout << "1.¿ªÊ¼Ñ¡¿Î" << endl;
-	cout << "2.²é¿´¸öÈË×ÊÁÏ" << endl;
-	cout << "3.²éÑ¯¿Î³Ì" << endl;
-	cout << "4.·µ»Ø²Ëµ¥" << endl;
-	cout << "5.ÍË³öÏµÍ³" << endl;
+	cout << "1.å¼€å§‹é€‰è¯¾" << endl;
+	cout << "2.æŸ¥çœ‹ä¸ªäººèµ„æ–™" << endl;
+	cout << "3.æŸ¥è¯¢è¯¾ç¨‹" << endl;
+	cout << "4.è¿”å›èœå•" << endl;
+	cout << "5.é€€å‡ºç³»ç»Ÿ" << endl;
 	cout << endl;
 	cout << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
-	cout << endl << "ÇëÑ¡Ôñ¹¦ÄÜ(1~5): ";
+	cout << endl << "è¯·é€‰æ‹©åŠŸèƒ½(1~5): ";
 	switch (choose('5'))
 	{
 	case'1':
@@ -191,21 +191,21 @@ void Menu::studentMenu()
 void Menu::selectCourseMenu()
 {
 	system("cls");
-	cout << "\n\t\t\t       Ñ¡¿Î²Ëµ¥" << endl;
+	cout << "\n\t\t\t       é€‰è¯¾èœå•" << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
 	cout << endl;
-	cout << "1.ä¯ÀÀÈ«²¿¿ÉÑ¡¿Î³Ì" << endl;
-	cout << "2.ä¯ÀÀÈ«²¿ÒÑÑ¡¿Î³Ì" << endl;
-	cout << "3.·µ»Ø²Ëµ¥" << endl;
-	cout << "4.ÍË³öÏµÍ³" << endl;
+	cout << "1.æµè§ˆå…¨éƒ¨å¯é€‰è¯¾ç¨‹" << endl;
+	cout << "2.æµè§ˆå…¨éƒ¨å·²é€‰è¯¾ç¨‹" << endl;
+	cout << "3.è¿”å›èœå•" << endl;
+	cout << "4.é€€å‡ºç³»ç»Ÿ" << endl;
 	cout << endl;
 	cout << endl;
 	cout << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
 	cout << "\n" << endl;
-	cout << "ÇëÑ¡Ôñ¹¦ÄÜ(1~4): ";
+	cout << "è¯·é€‰æ‹©åŠŸèƒ½(1~4): ";
 	switch (choose('4'))
 	{
 	case '1':
@@ -235,33 +235,33 @@ void Menu::selectCourseMenu()
 void Menu::courseInfoSearchMenu()
 {
 	system("cls");
-	cout << "\n\t\t\t       ¿Î³ÌĞÅÏ¢²éÑ¯²Ëµ¥" << endl;
+	cout << "\n\t\t\t       è¯¾ç¨‹ä¿¡æ¯æŸ¥è¯¢èœå•" << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
 	cout << endl;
-	cout << "1.¿Î³ÌÑ§·Ö" << endl;
-	cout << "2.¿Î³ÌÃû³Æ" << endl;
-	cout << "3.²é¿´È«²¿¿Î³Ì" << endl;
-	cout << "4.·µ»Ø²Ëµ¥" << endl;
-	cout << "5.ÍË³öÏµÍ³" << endl;
+	cout << "1.è¯¾ç¨‹å­¦åˆ†" << endl;
+	cout << "2.è¯¾ç¨‹åç§°" << endl;
+	cout << "3.æŸ¥çœ‹å…¨éƒ¨è¯¾ç¨‹" << endl;
+	cout << "4.è¿”å›èœå•" << endl;
+	cout << "5.é€€å‡ºç³»ç»Ÿ" << endl;
 	cout << endl;
 	cout << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
-	cout << endl << "ÇëÑ¡Ôñ¹¦ÄÜ(1~5): ";
+	cout << endl << "è¯·é€‰æ‹©åŠŸèƒ½(1~5): ";
 	Course course;
 	switch (choose('5'))
 	{
 	case '1':
 	{
-		cout << "ÇëÊäÈëÒª²éÕÒµÄ¿Î³ÌÑ§·Ö£º";
+		cout << "è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„è¯¾ç¨‹å­¦åˆ†ï¼š";
 		course.showCoursesByCredit(inputString());
 		Menu::courseInfoSearchMenu();
 		break;
 	}
 	case '2':
 	{
-		cout << "ÇëÊäÈëÒª²éÕÒµÄ¿Î³ÌÃû³Æ£º";
+		cout << "è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„è¯¾ç¨‹åç§°ï¼š";
 		course.showCoursesByName(inputString());
 		Menu::courseInfoSearchMenu();
 		break;
@@ -283,33 +283,33 @@ void Menu::courseInfoSearchMenu()
 void Menu::studentInfoSearchMenu()
 {
 	system("cls");
-	cout << "\n\t\t\t       Ñ§ÉúĞÅÏ¢²éÑ¯²Ëµ¥" << endl;
+	cout << "\n\t\t\t       å­¦ç”Ÿä¿¡æ¯æŸ¥è¯¢èœå•" << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
 	cout << endl;
-	cout << "1.Ñ§ÉúÑ§ºÅ" << endl;
-	cout << "2.Ñ§ÉúÃû×Ö" << endl;
-	cout << "3.²é¿´È«²¿Ñ§Éú" << endl;
-	cout << "4.·µ»Ø²Ëµ¥" << endl;
-	cout << "5.ÍË³öÏµÍ³" << endl;
+	cout << "1.å­¦ç”Ÿå­¦å·" << endl;
+	cout << "2.å­¦ç”Ÿåå­—" << endl;
+	cout << "3.æŸ¥çœ‹å…¨éƒ¨å­¦ç”Ÿ" << endl;
+	cout << "4.è¿”å›èœå•" << endl;
+	cout << "5.é€€å‡ºç³»ç»Ÿ" << endl;
 	cout << endl;
 	cout << endl;
 	for (int i = 0; i < 80; i++)
 		cout << "*";
-	cout << endl << "ÇëÑ¡Ôñ¹¦ÄÜ(1~5): ";
+	cout << endl << "è¯·é€‰æ‹©åŠŸèƒ½(1~5): ";
 	Student student;
 	switch (choose('5'))
 	{
 	case '1':
 	{
-		cout << "ÇëÊäÈëÒª²éÕÒµÄÑ§ÉúÑ§ºÅ: ";
+		cout << "è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„å­¦ç”Ÿå­¦å·: ";
 		student.showStudentByUid(inputString());
 		Menu::studentInfoSearchMenu();
 		break;
 	}
 	case '2':
 	{
-		cout << "ÇëÊäÈë²éÕÒµÄÑ§ÉúĞÕÃû: ";
+		cout << "è¯·è¾“å…¥æŸ¥æ‰¾çš„å­¦ç”Ÿå§“å: ";
 		student.showStudentByName(inputString());
 		Menu::studentInfoSearchMenu();
 		break;

@@ -62,5 +62,5 @@ void SelectCourseDao::addRecord(SelectCourse selectCourse)
 	if (queryResult != SQLITE_OK)
 		cout << errorMsg;
 	else
-		cout << "==================学生选课信息录入成功==================" << endl;
+		cout << "==================瀛︾敓閫夎淇℃伅褰曞叆鎴愬姛==================" << endl;
 }

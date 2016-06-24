@@ -8,10 +8,10 @@
 class SelectCourseDao : public DBHelper
 {
 public:
-	vector<Course> getOptionalCourses(string uid);      // »ñÈ¡¿ÉÑ¡¿Î³Ì
-	vector<Course> getRecords(string uid);              // »ñÈ¡Ñ¡¿Î¼ÇÂ¼
-	void addRecord(SelectCourse selectCourse);          // Ìí¼ÓÑ¡¿Î¼ÇÂ¼
-	void removeRecord();					            // É¾³ıÑ¡¿Î¼ÇÂ¼
+	vector<Course> getOptionalCourses(string uid);      // è·å–å¯é€‰è¯¾ç¨‹
+	vector<Course> getRecords(string uid);              // è·å–é€‰è¯¾è®°å½•
+	void addRecord(SelectCourse selectCourse);          // æ·»åŠ é€‰è¯¾è®°å½•
+	void removeRecord();					            // åˆ é™¤é€‰è¯¾è®°å½•
 	SelectCourseDao(){ openDB(DB_NAME); }
 	~SelectCourseDao(){ }
 

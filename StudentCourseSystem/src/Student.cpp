@@ -3,12 +3,12 @@
 #include "Menu.h"
 
 string Student::loginUid = "";
-string Student::profile[] = { "Ñ§ºÅ£º", "ĞÕÃû£º", "ĞÔ±ğ£º", "¼¨µã£º", "Äê¼¶£º", "×¨Òµ£º", "ÔºÏµ£º" };
+string Student::profile[] = { "å­¦å·ï¼š", "å§“åï¼š", "æ€§åˆ«ï¼š", "ç»©ç‚¹ï¼š", "å¹´çº§ï¼š", "ä¸“ä¸šï¼š", "é™¢ç³»ï¼š" };
 
 void Student::login()
 {
 	
-	cout << "ÇëÊäÈëÑ§ºÅ: ";
+	cout << "è¯·è¾“å…¥å­¦å·: ";
 	loginUid = inputString();
 	StudentDao studentDao;
 	vector<string> studentInfo = studentDao.getStudentByUid(loginUid);
@@ -16,7 +16,7 @@ void Student::login()
 		Menu::studentMenu();
 	else
 	{
-		cout << "Ñ§ºÅ´íÎó!" << endl;
+		cout << "å­¦å·é”™è¯¯!" << endl;
 		this->login();
 	}
 }
@@ -24,19 +24,19 @@ void Student::login()
 void Student::createStudent()
 {
 	Student student;
-	cout << "ÇëÊäÈëÑ§ºÅ£º";
+	cout << "è¯·è¾“å…¥å­¦å·ï¼š";
 	student.setUid(inputString());
-	cout << "ÇëÊäÈëĞÕÃû£º";
+	cout << "è¯·è¾“å…¥å§“åï¼š";
 	student.setName(inputString());
-	cout << "ÇëÊäÈëĞÔ±ğ£º";
+	cout << "è¯·è¾“å…¥æ€§åˆ«ï¼š";
 	student.setSex(inputString());
-	cout << "ÇëÊäÈë¼¨µã£º";
+	cout << "è¯·è¾“å…¥ç»©ç‚¹ï¼š";
 	student.setCredit(inputString());
-	cout << "ÇëÊäÈëÄê¼¶£º";
+	cout << "è¯·è¾“å…¥å¹´çº§ï¼š";
 	student.setGrade(inputString());
-	cout << "ÇëÊäÈë×¨Òµ£º";
+	cout << "è¯·è¾“å…¥ä¸“ä¸šï¼š";
 	student.setMajor(inputString());
-	cout << "ÇëÊäÈëÔºÏµ£º";
+	cout << "è¯·è¾“å…¥é™¢ç³»ï¼š";
 	student.setDepartment(inputString());
 	StudentDao studentDao;
 	studentDao.addStudent(student);
@@ -56,8 +56,8 @@ void Student::showStudentByUid(string uid)
 	vector<string> studentInfo = studentDao.getStudentByUid(uid);
 	vector<string>::iterator iterator;
 	if (studentInfo.empty())
-		cout << endl << "Ã»ÕÒµ½¸ÃÑ§Éú";
-	// ´òÓ¡»ñÈ¡µ½µÄÑ§ÉúĞÅÏ¢
+		cout << endl << "æ²¡æ‰¾åˆ°è¯¥å­¦ç”Ÿ";
+	// æ‰“å°è·å–åˆ°çš„å­¦ç”Ÿä¿¡æ¯
 	cout << endl;
 	int index = 0;
 	for (iterator = studentInfo.begin(); iterator != studentInfo.end(); iterator++)
@@ -72,8 +72,8 @@ void Student::showStudentByName(string name)
 	vector<string> studentInfo = studentDao.getStudentByName(name);
 	vector<string>::iterator iterator;
 	if (studentInfo.empty())
-		cout << endl << "Ã»ÕÒµ½¸ÃÑ§Éú";
-	// ´òÓ¡»ñÈ¡µ½µÄÑ§ÉúĞÅÏ¢
+		cout << endl << "æ²¡æ‰¾åˆ°è¯¥å­¦ç”Ÿ";
+	// æ‰“å°è·å–åˆ°çš„å­¦ç”Ÿä¿¡æ¯
 	cout << endl;
 	int index = 0;
 	for (iterator = studentInfo.begin(); iterator != studentInfo.end(); iterator++)
@@ -88,21 +88,21 @@ void Student::showAllStudents()
 	vector<Student> students = studentDao.getAllStudents();
 	if (students.empty())
 	{
-		cout << "Ã»ÓĞ¼ÇÂ¼Ñ§ÉúĞÅÏ¢!\n";
+		cout << "æ²¡æœ‰è®°å½•å­¦ç”Ÿä¿¡æ¯!\n";
 		system("pause");
 		return;
 	}
-	cout << "\nÑ§ÉúĞÅÏ¢ÈçÏÂ£º\n" << endl;
+	cout << "\nå­¦ç”Ÿä¿¡æ¯å¦‚ä¸‹ï¼š\n" << endl;
 	for (vector<Student>::iterator iter = students.begin(); iter != students.end(); iter++)
 	{
 		cout << "=========================================================\n"
-			<< "Ñ§ºÅ£º" << iter->getUid() << endl
-			<< "ĞÕÃû£º" << iter->getName() << endl
-			<< "ĞÔ±ğ£º" << iter->getSex() << endl
-			<< "¼¨µã£º" << iter->getCredit() << endl
-			<< "Äê¼¶£º" << iter->getGrade() << endl
-			<< "×¨Òµ£º" << iter->getMajor() << endl
-			<< "ÔºÏµ£º" << iter->getDepartment() << endl << endl;
+			<< "å­¦å·ï¼š" << iter->getUid() << endl
+			<< "å§“åï¼š" << iter->getName() << endl
+			<< "æ€§åˆ«ï¼š" << iter->getSex() << endl
+			<< "ç»©ç‚¹ï¼š" << iter->getCredit() << endl
+			<< "å¹´çº§ï¼š" << iter->getGrade() << endl
+			<< "ä¸“ä¸šï¼š" << iter->getMajor() << endl
+			<< "é™¢ç³»ï¼š" << iter->getDepartment() << endl << endl;
 	}
 	system("pause");
 }

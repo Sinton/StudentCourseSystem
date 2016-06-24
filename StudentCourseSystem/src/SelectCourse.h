@@ -6,33 +6,33 @@ class SelectCourse
 {
 public:
 
-	// setÊôĞÔ
+	// setå±æ€§
 	void setRecordId(string recordId){ this->recordId = recordId; }
 	void setCourseId(string courseId){ this->courseId = courseId; }
 	void setUid(string uid){ this->uid = uid; }
 	void setCourseName(string courseName){ this->courseName = courseName; }
 	void setCourseCredit(string courseCredit){ this->courseCredit = courseCredit; }
 
-	// getÊôĞÔ
+	// getå±æ€§
 	string getRecordId(){ return recordId; }
 	string getCourseId(){ return courseId; }
 	string getUid(){ return uid; }
 	string getCourseName(){ return courseName; }
 	string getCourseCredit(){ return courseCredit; }
 
-	void createRecord(vector<Course> selectCourses);     // Ìí¼ÓÑ¡¿Î¼ÇÂ¼
-	void updateRecord();     // ¸üĞÂÑ¡¿Î¼ÇÂ¼
-	void deleteRecord();     // É¾³ıÑ¡¿Î¼ÇÂ¼
-	void showAllOptionalCourse();// »ñÈ¡È«²¿¿ÉÑ¡¿Î³Ì
-	void showAllRecords();		 // »ñÈ¡È«²¿ÒÑÑ¡¿Î³Ì
+	void createRecord(vector<Course> selectCourses);     // æ·»åŠ é€‰è¯¾è®°å½•
+	void updateRecord();         // æ›´æ–°é€‰è¯¾è®°å½•
+	void deleteRecord();         // åˆ é™¤é€‰è¯¾è®°å½•
+	void showAllOptionalCourse();// è·å–å…¨éƒ¨å¯é€‰è¯¾ç¨‹
+	void showAllRecords();       // è·å–å…¨éƒ¨å·²é€‰è¯¾ç¨‹
 	SelectCourse();
 	~SelectCourse();
 private:
-	string recordId;   // Ñ¡¿Î¼ÇÂ¼±àºÅ
-	string courseId;   // ¿Î³Ì±àºÅ
-	string uid;        // Ñ¡¿ÎÑ§ÉúÑ§ºÅ
-	string courseName; // ËùÑ¡¿Î³ÌÃû³Æ
-	string courseCredit;// ËùÑ¡¿Î³Ì³É¼¨
+	string recordId;    // é€‰è¯¾è®°å½•ç¼–å·
+	string courseId;    // è¯¾ç¨‹ç¼–å·
+	string uid;         // é€‰è¯¾å­¦ç”Ÿå­¦å·
+	string courseName;  // æ‰€é€‰è¯¾ç¨‹åç§°
+	string courseCredit;// æ‰€é€‰è¯¾ç¨‹æˆç»©
 };
 
 #endif

@@ -16,11 +16,11 @@ class DBHelper
 public:
 	DBHelper() { openDB(DB_NAME); }
 	virtual ~DBHelper() { closeDB(); }
-	int openDB(const char *path);							// ´ò¿ªÊı¾İ¿â
-	int closeDB();											// ¹Ø±ÕÊı¾İ¿â
-	sqlite3 *sqliteDb;	    // Êı¾İ¿âµÄÖ¸Õë
-	char* errorMsg;			// ´íÎóĞÅÏ¢
-	bool isClose;			// ¹Ø±ÕÊı¾İµÄ±êÊ¶
+	int openDB(const char *path);      // æ‰“å¼€æ•°æ®åº“
+	int closeDB();                     // å…³é—­æ•°æ®åº“
+	sqlite3 *sqliteDb;                 // æ•°æ®åº“çš„æŒ‡é’ˆ
+	char* errorMsg;                    // é”™è¯¯ä¿¡æ¯
+	bool isClose;                      // å…³é—­æ•°æ®çš„æ ‡è¯†
 private:
 	
 };

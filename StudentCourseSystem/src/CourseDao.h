@@ -9,13 +9,13 @@ class CourseDao : public DBHelper
 public:
 	static string memberJoin;
 
-	vector<Course> getAllCourses();			        // »ñÈ¡ËùÓĞ¿Î³Ì
-	vector<Course> getCourseByName(string name);    // »ñÈ¡ÏàËÆ¿Î³ÌÃû³ÆÏÂµÄÈ«²¿¿Î³Ì
-	vector<Course> getCourseByCredit(string credit);// »ñÈ¡Ö¸¶¨Ñ§·ÖÏÂµÄÈ«²¿¿Î³Ì
-	void addCourse(Course course);                  // Ìí¼Ó¿Î³Ì
-	void removeCourse();                            // É¾³ı¿Î³Ì
-	void updateMemberJoin(string courseId);         // ¸üĞÂ¿Î³ÌÑ¡¿ÎÈËÊı
-	void getMemberJoin(string courseId);            // »ñÈ¡¿Î³ÌÑ¡¿ÎÈËÊı
+	vector<Course> getAllCourses();                 // è·å–æ‰€æœ‰è¯¾ç¨‹
+	vector<Course> getCourseByName(string name);    // è·å–ç›¸ä¼¼è¯¾ç¨‹åç§°ä¸‹çš„å…¨éƒ¨è¯¾ç¨‹
+	vector<Course> getCourseByCredit(string credit);// è·å–æŒ‡å®šå­¦åˆ†ä¸‹çš„å…¨éƒ¨è¯¾ç¨‹
+	void addCourse(Course course);                  // æ·»åŠ è¯¾ç¨‹
+	void removeCourse();                            // åˆ é™¤è¯¾ç¨‹
+	void updateMemberJoin(string courseId);         // æ›´æ–°è¯¾ç¨‹é€‰è¯¾äººæ•°
+	void getMemberJoin(string courseId);            // è·å–è¯¾ç¨‹é€‰è¯¾äººæ•°
 	CourseDao(){ openDB(DB_NAME); }
 	~CourseDao(){ }
 

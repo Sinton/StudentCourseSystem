@@ -81,5 +81,5 @@ void StudentDao::addStudent(Student student)
 	if (queryResult != SQLITE_OK)
 		cout << errorMsg;
 	else
-		cout << "==================学生信息录入成功==================" << endl;
+		cout << "==================瀛︾敓淇℃伅褰曞叆鎴愬姛==================" << endl;
 }

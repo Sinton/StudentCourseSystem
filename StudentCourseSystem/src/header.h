@@ -14,9 +14,9 @@ using namespace std;
 
 const int N(100);
 
-char choose(char c); //²Ëµ¥ÖĞµÄÑ¡Ôñº¯Êı 
-int inputNumber();   //ÊäÈëÊı×Ö 
-char inputChar();    //ÊäÈë×Ö·û 
-string inputString();//ÊäÈë×Ö·û´® 
+char choose(char c); //èœå•ä¸­çš„é€‰æ‹©å‡½æ•° 
+int inputNumber();   //è¾“å…¥æ•°å­— 
+char inputChar();    //è¾“å…¥å­—ç¬¦ 
+string inputString();//è¾“å…¥å­—ç¬¦ä¸² 
 
 #endif

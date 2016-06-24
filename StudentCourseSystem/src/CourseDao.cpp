@@ -70,7 +70,7 @@ void CourseDao::addCourse(Course course)
 	if (queryResult != SQLITE_OK)
 		cout << errorMsg;
 	else
-		cout << "==================课程信息录入成功==================" << endl;
+		cout << "==================璇剧▼淇℃伅褰曞叆鎴愬姛==================" << endl;
 }
 
 void CourseDao::removeCourse()
