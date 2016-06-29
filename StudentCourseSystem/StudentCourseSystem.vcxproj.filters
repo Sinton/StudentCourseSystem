@@ -59,9 +59,6 @@
     <ClInclude Include="src\SelectCourse.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\header.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="src\StudentDao.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -69,6 +66,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\SelectCourseDao.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Common.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
